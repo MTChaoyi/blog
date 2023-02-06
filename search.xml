@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Markdown语法</title>
-    <url>/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/</url>
+    <url>/blog/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>一点小教程</category>
@@ -13,7 +13,7 @@
   </entry>
   <entry>
     <title>Office激活</title>
-    <url>/2022/04/06/Office%E6%BF%80%E6%B4%BB/</url>
+    <url>/blog/2022/04/06/Office%E6%BF%80%E6%B4%BB/</url>
     <content><![CDATA[<hr>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
@@ -32,7 +32,7 @@
   </entry>
   <entry>
     <title>Ubuntu服务器之Docker</title>
-    <url>/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/</url>
+    <url>/blog/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/</url>
     <content><![CDATA[<hr>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
@@ -514,8 +514,102 @@ docker run -d --name yesplaymusic -p 3000:80 fogforest&#x2F;yesplaymusic</code><
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu服务器之网站</title>
+    <url>/blog/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<hr>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E8%87%AA%E6%90%AD%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83---tomcat">自搭运行环境 - Tomcat</a><ul>
+<li><a href="#step1---%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83">Step1 - 安装java环境</a></li>
+<li><a href="#step2---%E5%AE%89%E8%A3%85tomcat">Step2 - 安装Tomcat</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%AE%9D%E5%A1%94">使用宝塔</a><ul>
+<li><a href="#%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94">安装宝塔</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="自搭运行环境-Tomcat"><a href="#自搭运行环境-Tomcat" class="headerlink" title="自搭运行环境 - Tomcat"></a>自搭运行环境 - Tomcat</h1><h2 id="Step1-安装java环境"><a href="#Step1-安装java环境" class="headerlink" title="Step1 - 安装java环境"></a>Step1 - 安装java环境</h2><p><strong>1. 官网下载JDK <a href="https://www.oracle.com/java/technologies/downloads/">Java Downloads</a><br>  &amp;emsp;本次使用jdk-1.8.0_401</strong></p>
+<p><strong>2. 解压jdk</strong></p>
+<ul>
+<li>在 &#x2F;usr&#x2F;lib 目录下创建 jvm 文件夹来保存 JDK 文件：<pre class="language-none"><code class="language-none">cd &#x2F;usr&#x2F;lib</code></pre>
+<pre class="language-none"><code class="language-none">sudo mkdir jvm</code></pre></li>
+<li>解压缩之前的 JDK 文件到上述目录中：<pre class="language-none"><code class="language-none">cd ~&#x2F;Downloads</code></pre>
+<pre class="language-none"><code class="language-none">sudo tar -zxvf .&#x2F;jdk-8u401-linux-x64.tar.gz -C &#x2F;usr&#x2F;lib&#x2F;jvm</code></pre>
+<strong>3. 配置JDK环境变量</strong></li>
+<li>打开 ~&#x2F;.bashrc<pre class="language-none"><code class="language-none">sudo nano ~&#x2F;.bashrc</code></pre></li>
+<li>添加以下内容  <pre class="language-none"><code class="language-none">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.8.0_401
+export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre
+export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib
+export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</code></pre></li>
+<li>退出nona编辑器：<pre class="language-none"><code class="language-none">Ctrl+X 保存，Y 确定保存，回车确定保存到文件</code></pre></li>
+<li>使环境变量生效：<pre class="language-none"><code class="language-none">source ~&#x2F;.bashrc</code></pre>
+<strong>4. 检验安装结果</strong>  <pre class="language-none"><code class="language-none">java -version</code></pre>
+出现与以下结果类似则说明安装成功<blockquote>
+<p>hadoop@fzqs-computer:~$ java -version</br><br>java version “1.8.0_301”</br><br>Java(TM) SE Runtime Environment (build 1.8.0_301-b09)</br><br>Java HotSpot(TM) 64-Bit Server VM (build 25.301-b09, mixed mode)</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Step2-安装Tomcat"><a href="#Step2-安装Tomcat" class="headerlink" title="Step2 - 安装Tomcat"></a>Step2 - 安装Tomcat</h2><p><strong>1. 官网或仓库下载Tomcat <a href="https://tomcat.apache.org/">Apache Tomcat</a> | <a href="https://www-eu.apache.org/dist/tomcat/">wget仓库</a><br>   &amp;emsp;本次安装Tomcat-9.0.68</strong><br><strong>2. 解压缩之前下载的 Tomcat 文件到 &#x2F;opt 目录中：</strong></p>
+  <pre class="language-none"><code class="language-none">cd ~&#x2F;Downloads</code></pre>
+  <pre class="language-none"><code class="language-none">sudo tar -zxvf .&#x2F;apache-tomcat-9.0.68.tar.gz -C &#x2F;opt&#x2F;</code></pre>
+<p><strong>3. 在 Tomcat bin目录下的 shell 脚本必须可执行：</strong></p>
+  <pre class="language-none"><code class="language-none">sudo sh -c &#39;chmod +x &#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;*.sh&#39;</code></pre>
+<p><strong>4. 创建 SystemD 单元文件</strong><br>  &amp;emsp;与使用 shell 脚本来启动和停止 Tomcat 服务器相比，我们将会将它作为服务来运行。</p>
+<ul>
+<li>打开文本编辑器，并且在 &#x2F;etc&#x2F;systemd&#x2F;system&#x2F; 目录下创建一个 tomcat.service 单元文件。<pre class="language-none"><code class="language-none">sudo nano &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;tomcat.service</code></pre></li>
+<li>粘贴下面的配置文件（用户名和用户组需改成自己的）  <pre class="language-none"><code class="language-none">[Unit]
+Description&#x3D;Tomcat 9 servlet container
+After&#x3D;network.target
+
+[Service]
+Type&#x3D;forking
+
+User&#x3D;用户名
+Group&#x3D;用户组
+
+Environment&#x3D;&quot;JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.8.0_401&quot;
+Environment&#x3D;&quot;JAVA_OPTS&#x3D;-Djava.security.egd&#x3D;file:&#x2F;&#x2F;&#x2F;dev&#x2F;urandom -Djava.awt.headless&#x3D;true&quot;
+
+Environment&#x3D;&quot;CATALINA_BASE&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&quot;
+Environment&#x3D;&quot;CATALINA_HOME&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&quot;
+Environment&#x3D;&quot;CATALINA_PID&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;temp&#x2F;tomcat.pid&quot;
+Environment&#x3D;&quot;CATALINA_OPTS&#x3D;-Xms512M -Xmx1024M -server -XX:+UseParallelGC&quot;
+
+ExecStart&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;startup.sh
+ExecStop&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;shutdown.sh
+
+[Install]
+WantedBy&#x3D;multi-user.target</code></pre></li>
+<li>保存并且关闭文件，通知 systemd 一个新的单元文件存在：<pre class="language-none"><code class="language-none">sudo systemctl daemon-reload</code></pre></li>
+<li>启用并且启动 Tomcat 服务：<pre class="language-none"><code class="language-none">sudo systemctl enable --now tomcat</code></pre></li>
+<li>检查服务状态：<pre class="language-none"><code class="language-none">sudo systemctl status tomcat</code></pre></li>
+<li>输出应该显示 Tomcat 服务器已经启用，并且运行了：<blockquote>
+<p>tomcat.service - Tomcat 9 servlet container</br><br>Loaded: loaded (&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;tomcat.service; enabled; vendor preset: enabled)</br><br>Active: active (running) since Mon 2020-05-25 17:58:37 UTC; 4s ago</br><br>Process: 5342 ExecStart&#x3D;&#x2F;opt&#x2F;tomcat&#x2F;latest&#x2F;bin&#x2F;startup.sh (code&#x3D;exited, status&#x3D;0&#x2F;SUCCESS)</br><br>Main PID: 5362 (java)</br><br>&amp;emsp;. . .</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>5. 你可以 像其他 systemd 服务一样 启动，停止和重启 Tomcat：</strong><br>  <pre class="language-none"><code class="language-none">sudo systemctl start tomcat</code></pre><br>  <pre class="language-none"><code class="language-none">sudo systemctl stop tomcat</code></pre><br>  <pre class="language-none"><code class="language-none">sudo systemctl restart tomcat</code></pre><br><strong>6. Tomcat默认端口为 8080</strong></p>
+<h1 id="使用宝塔"><a href="#使用宝塔" class="headerlink" title="使用宝塔"></a>使用宝塔</h1><h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><blockquote>
+<p>安装脚本</p>
+<pre class="language-none"><code class="language-none">wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh ed8484bec</code></pre>
+</blockquote>
+<p><strong>一路回车直到显示</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-18-22-05-13.png" width=80%/ loading="lazy"></div>
+]]></content>
+      <categories>
+        <category>一点小教程</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>服务器</tag>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu服务器搭建</title>
-    <url>/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
+    <url>/blog/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<hr>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
@@ -751,102 +845,8 @@ sudo apt install xubuntu-desktop</code></pre></li>
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu服务器之网站</title>
-    <url>/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<hr>
-<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E8%87%AA%E6%90%AD%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83---tomcat">自搭运行环境 - Tomcat</a><ul>
-<li><a href="#step1---%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83">Step1 - 安装java环境</a></li>
-<li><a href="#step2---%E5%AE%89%E8%A3%85tomcat">Step2 - 安装Tomcat</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E5%AE%9D%E5%A1%94">使用宝塔</a><ul>
-<li><a href="#%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94">安装宝塔</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="自搭运行环境-Tomcat"><a href="#自搭运行环境-Tomcat" class="headerlink" title="自搭运行环境 - Tomcat"></a>自搭运行环境 - Tomcat</h1><h2 id="Step1-安装java环境"><a href="#Step1-安装java环境" class="headerlink" title="Step1 - 安装java环境"></a>Step1 - 安装java环境</h2><p><strong>1. 官网下载JDK <a href="https://www.oracle.com/java/technologies/downloads/">Java Downloads</a><br>  &amp;emsp;本次使用jdk-1.8.0_401</strong></p>
-<p><strong>2. 解压jdk</strong></p>
-<ul>
-<li>在 &#x2F;usr&#x2F;lib 目录下创建 jvm 文件夹来保存 JDK 文件：<pre class="language-none"><code class="language-none">cd &#x2F;usr&#x2F;lib</code></pre>
-<pre class="language-none"><code class="language-none">sudo mkdir jvm</code></pre></li>
-<li>解压缩之前的 JDK 文件到上述目录中：<pre class="language-none"><code class="language-none">cd ~&#x2F;Downloads</code></pre>
-<pre class="language-none"><code class="language-none">sudo tar -zxvf .&#x2F;jdk-8u401-linux-x64.tar.gz -C &#x2F;usr&#x2F;lib&#x2F;jvm</code></pre>
-<strong>3. 配置JDK环境变量</strong></li>
-<li>打开 ~&#x2F;.bashrc<pre class="language-none"><code class="language-none">sudo nano ~&#x2F;.bashrc</code></pre></li>
-<li>添加以下内容  <pre class="language-none"><code class="language-none">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.8.0_401
-export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre
-export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib
-export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</code></pre></li>
-<li>退出nona编辑器：<pre class="language-none"><code class="language-none">Ctrl+X 保存，Y 确定保存，回车确定保存到文件</code></pre></li>
-<li>使环境变量生效：<pre class="language-none"><code class="language-none">source ~&#x2F;.bashrc</code></pre>
-<strong>4. 检验安装结果</strong>  <pre class="language-none"><code class="language-none">java -version</code></pre>
-出现与以下结果类似则说明安装成功<blockquote>
-<p>hadoop@fzqs-computer:~$ java -version</br><br>java version “1.8.0_301”</br><br>Java(TM) SE Runtime Environment (build 1.8.0_301-b09)</br><br>Java HotSpot(TM) 64-Bit Server VM (build 25.301-b09, mixed mode)</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="Step2-安装Tomcat"><a href="#Step2-安装Tomcat" class="headerlink" title="Step2 - 安装Tomcat"></a>Step2 - 安装Tomcat</h2><p><strong>1. 官网或仓库下载Tomcat <a href="https://tomcat.apache.org/">Apache Tomcat</a> | <a href="https://www-eu.apache.org/dist/tomcat/">wget仓库</a><br>   &amp;emsp;本次安装Tomcat-9.0.68</strong><br><strong>2. 解压缩之前下载的 Tomcat 文件到 &#x2F;opt 目录中：</strong></p>
-  <pre class="language-none"><code class="language-none">cd ~&#x2F;Downloads</code></pre>
-  <pre class="language-none"><code class="language-none">sudo tar -zxvf .&#x2F;apache-tomcat-9.0.68.tar.gz -C &#x2F;opt&#x2F;</code></pre>
-<p><strong>3. 在 Tomcat bin目录下的 shell 脚本必须可执行：</strong></p>
-  <pre class="language-none"><code class="language-none">sudo sh -c &#39;chmod +x &#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;*.sh&#39;</code></pre>
-<p><strong>4. 创建 SystemD 单元文件</strong><br>  &amp;emsp;与使用 shell 脚本来启动和停止 Tomcat 服务器相比，我们将会将它作为服务来运行。</p>
-<ul>
-<li>打开文本编辑器，并且在 &#x2F;etc&#x2F;systemd&#x2F;system&#x2F; 目录下创建一个 tomcat.service 单元文件。<pre class="language-none"><code class="language-none">sudo nano &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;tomcat.service</code></pre></li>
-<li>粘贴下面的配置文件（用户名和用户组需改成自己的）  <pre class="language-none"><code class="language-none">[Unit]
-Description&#x3D;Tomcat 9 servlet container
-After&#x3D;network.target
-
-[Service]
-Type&#x3D;forking
-
-User&#x3D;用户名
-Group&#x3D;用户组
-
-Environment&#x3D;&quot;JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.8.0_401&quot;
-Environment&#x3D;&quot;JAVA_OPTS&#x3D;-Djava.security.egd&#x3D;file:&#x2F;&#x2F;&#x2F;dev&#x2F;urandom -Djava.awt.headless&#x3D;true&quot;
-
-Environment&#x3D;&quot;CATALINA_BASE&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&quot;
-Environment&#x3D;&quot;CATALINA_HOME&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&quot;
-Environment&#x3D;&quot;CATALINA_PID&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;temp&#x2F;tomcat.pid&quot;
-Environment&#x3D;&quot;CATALINA_OPTS&#x3D;-Xms512M -Xmx1024M -server -XX:+UseParallelGC&quot;
-
-ExecStart&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;startup.sh
-ExecStop&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;shutdown.sh
-
-[Install]
-WantedBy&#x3D;multi-user.target</code></pre></li>
-<li>保存并且关闭文件，通知 systemd 一个新的单元文件存在：<pre class="language-none"><code class="language-none">sudo systemctl daemon-reload</code></pre></li>
-<li>启用并且启动 Tomcat 服务：<pre class="language-none"><code class="language-none">sudo systemctl enable --now tomcat</code></pre></li>
-<li>检查服务状态：<pre class="language-none"><code class="language-none">sudo systemctl status tomcat</code></pre></li>
-<li>输出应该显示 Tomcat 服务器已经启用，并且运行了：<blockquote>
-<p>tomcat.service - Tomcat 9 servlet container</br><br>Loaded: loaded (&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;tomcat.service; enabled; vendor preset: enabled)</br><br>Active: active (running) since Mon 2020-05-25 17:58:37 UTC; 4s ago</br><br>Process: 5342 ExecStart&#x3D;&#x2F;opt&#x2F;tomcat&#x2F;latest&#x2F;bin&#x2F;startup.sh (code&#x3D;exited, status&#x3D;0&#x2F;SUCCESS)</br><br>Main PID: 5362 (java)</br><br>&amp;emsp;. . .</p>
-</blockquote>
-</li>
-</ul>
-<p><strong>5. 你可以 像其他 systemd 服务一样 启动，停止和重启 Tomcat：</strong><br>  <pre class="language-none"><code class="language-none">sudo systemctl start tomcat</code></pre><br>  <pre class="language-none"><code class="language-none">sudo systemctl stop tomcat</code></pre><br>  <pre class="language-none"><code class="language-none">sudo systemctl restart tomcat</code></pre><br><strong>6. Tomcat默认端口为 8080</strong></p>
-<h1 id="使用宝塔"><a href="#使用宝塔" class="headerlink" title="使用宝塔"></a>使用宝塔</h1><h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><blockquote>
-<p>安装脚本</p>
-<pre class="language-none"><code class="language-none">wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh ed8484bec</code></pre>
-</blockquote>
-<p><strong>一路回车直到显示</strong></p>
-<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-18-22-05-13.png" width=80%/ loading="lazy"></div>
-]]></content>
-      <categories>
-        <category>一点小教程</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>服务器</tag>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
-    <url>/2023/02/06/hello-world/</url>
+    <url>/blog/2023/02/06/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
 
@@ -863,8 +863,144 @@ WantedBy&#x3D;multi-user.target</code></pre></li>
 ]]></content>
   </entry>
   <entry>
+    <title>x-ui搭建v2ray</title>
+    <url>/blog/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/</url>
+    <content><![CDATA[<h1 id="x-ui搭建v2ary"><a href="#x-ui搭建v2ary" class="headerlink" title="x-ui搭建v2ary"></a>x-ui搭建v2ary</h1><blockquote>
+<p>@vaxilu&#x2F;x-ui <a href="https://github.com/vaxilu/x-ui">https://github.com/vaxilu/x-ui</a></p>
+</blockquote>
+<h1 id="一键部署代码"><a href="#一键部署代码" class="headerlink" title="一键部署代码"></a>一键部署代码</h1><p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
+<h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h1><ul>
+<li>系统状态监控</li>
+<li>支持多用户多协议，网页可视化操作</li>
+<li>支持的协议：vmess、vless、trojan、shadowsocks、dokodemo-door、socks、http</li>
+<li>支持配置更多传输配置</li>
+<li>流量统计，限制流量，限制到期时间</li>
+<li>可自定义 xray 配置模板</li>
+<li>支持 https 访问面板（自备域名 + ssl 证书）</li>
+<li>更多高级配置项，详见面板</li>
+</ul>
+<h1 id="CentOS-7自带防火墙开放端口"><a href="#CentOS-7自带防火墙开放端口" class="headerlink" title="CentOS 7自带防火墙开放端口"></a>CentOS 7自带防火墙开放端口</h1><ul>
+<li><p>查看firewall的状态<br><br><code>firewall-cmd --state</code></p>
+</li>
+<li><p>开放端口<br><br><code>firewall-cmd --permanent --add-port=XXX/tcp</code></p>
+</li>
+<li><p>重启防火墙(修改配置后要重启防火墙)<br><br><code>firewall-cmd --reload</code></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>一点小教程</category>
+      </categories>
+      <tags>
+        <tag>x-ui</tag>
+        <tag>v2ary</tag>
+        <tag>VPN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>华为手机安装谷歌</title>
+    <url>/blog/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/</url>
+    <content><![CDATA[<hr>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E6%AD%A5">第一步</a><ul>
+<li><a href="#%E8%B0%B7%E6%AD%8C%E6%9C%8D%E5%8A%A1%E5%8A%A9%E6%89%8B">谷歌服务助手</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5">第二步</a><ul>
+<li><a href="#%E5%90%8E%E9%9D%A2%E9%9C%80%E5%85%A8%E7%A8%8B%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%94%E5%BF%85%E9%A1%BB%E6%8C%89%E9%A1%BA%E5%BA%8F%E6%93%8D%E4%BD%9C">后面需全程科学上网且必须按顺序操作！</a></li>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4">初始安装步骤</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E8%AE%BE%E5%A4%87%E6%9C%AA%E8%8E%B7%E5%BE%97play%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6%E8%AE%A4%E8%AF%81%E9%80%9A%E7%9F%A5%E9%97%AE%E9%A2%98">解决“设备未获得play保护机制认证”通知问题</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><h2 id="谷歌服务助手"><a href="#谷歌服务助手" class="headerlink" title="谷歌服务助手"></a>谷歌服务助手</h2><ul>
+<li>安装旧版“备份”<ol>
+<li>卸载原装“备份”<blockquote>
+<p>adb uninstall com.huawei.localBackup</p>
+</blockquote>
+</li>
+<li>安装提供的“备份”<blockquote>
+<p>adb install 备份.apk</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>修改系统时间为 2019年6月</li>
+<li>将解压 Huawei.zip 得到的 backup 文件夹移到手机根目录下的 Huawei 文件夹内</li>
+<li>设置内打开“备份与恢复”，点击右上角选择“从内部存储恢复”</li>
+<li>恢复备份的密码显示在密码提示上</li>
+<li>打开谷歌服务助手，打开全部权限后选择“激活”，看到安装框架界面时退出</li>
+<li>将系统时间调回自动</li>
+</ul>
+<h1 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h1><h2 id="后面需全程科学上网且必须按顺序操作！"><a href="#后面需全程科学上网且必须按顺序操作！" class="headerlink" title="后面需全程科学上网且必须按顺序操作！"></a>后面需全程科学上网且必须按顺序操作！</h2><h2 id="初始安装步骤"><a href="#初始安装步骤" class="headerlink" title="初始安装步骤"></a>初始安装步骤</h2><ul>
+<li>安装 0.apk (HW安装器)<ul>
+<li>打开HW安装器</li>
+<li>点击 account 登录谷歌账号</li>
+<li>软件可能会闪退一次，打开继续登录即可</li>
+</ul>
+</li>
+<li>安装 1.apk (com.google…)</li>
+<li>安装 2.apk (Google通讯录同步)</li>
+<li>安装 4.apk (Google Play 商店)</li>
+<li>安装 5.apk (SharedLibrary)</li>
+<li>安装 6.apk (Google 账户管理程序)</li>
+<li>安装 7.apk (Google服务框架)</li>
+<li>卸载 0.apk (HW安装器)</li>
+<li>安装 3.apk (Google Play 服务)</li>
+</ul>
+<h2 id="解决“设备未获得play保护机制认证”通知问题"><a href="#解决“设备未获得play保护机制认证”通知问题" class="headerlink" title="解决“设备未获得play保护机制认证”通知问题"></a>解决“设备未获得play保护机制认证”通知问题</h2><ul>
+<li>打开 Google Play 商店<ul>
+<li>第一次打开一般会显示“从服务器检索信息时出错”</li>
+<li>点击重试直到商店页面正常显示</li>
+</ul>
+</li>
+<li>在商店搜索安装 Device ID (紫色图标的版本)</li>
+<li>打开 Device ID 可以看到 Google Service Framework (GSF) 正常显示</li>
+<li>在 设置-&gt;应用和服务-&gt;应用管理 中卸载 Google Play 服务</li>
+<li>安装 8.apk (Google Play 服务)</li>
+<li>在 设置-&gt;应用和服务-&gt;应用管理 中选择 Google服务框架<ul>
+<li>强行停止 Google服务框架</li>
+<li>-&gt;存储-&gt;删除数据-&gt;存储-&gt;删除数据-&gt;…</li>
+<li>重复删除数据直到 Device ID 中 GSF 显示 Unknown</li>
+<li>一般重复三次就行</li>
+</ul>
+</li>
+<li>卸载 Google服务框架</li>
+<li>再次安装 7.apk (Google服务框架)</li>
+<li>清理后台并打开 Google Play 商店<ul>
+<li>这时正常情况下不会出现“设备未获得play保护机制认证”的通知</li>
+<li>可以随便安装个软件测试</li>
+<li>百分百确认不会出现“设备未获得play保护机制认证”才可进行下一步<blockquote>
+<p>如果还是出现“设备未获得play保护机制认证”，则卸载第二步中安装的全部软件，重启设备后重新进行第二步</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>打开 Device ID 检查 GSF 是否正常显示<ul>
+<li>重复打开关闭 Device ID 来刷新数据</li>
+<li>重复四次五次左右还是显示 Unknown 就重启设备<blockquote>
+<p>重启后还是显示 Unknown 则卸载 Google Play 服务 装回 3.apk (Google Play 服务) 并卸载重装 Google服务框架，重新进行《解决“设备未获得play保护机制认证”通知问题》直到这一步正常或从头开始</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>确认 Device ID 中 GSF 正常显示后卸载 Google Play 服务 安装 9.apk (Google Play 服务)</li>
+<li>清理后台并打开 Google Play 商店 确认不会出现“设备未获得play保护机制认证”通知且可以正常安装软件则谷歌安装成功</li>
+</ul>
+]]></content>
+      <categories>
+        <category>一点小教程</category>
+      </categories>
+      <tags>
+        <tag>华为</tag>
+        <tag>谷歌</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo-github搭建博客</title>
-    <url>/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <url>/blog/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<hr>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
@@ -1027,142 +1163,6 @@ hexo help             # 帮助</code></pre>
         <tag>教程</tag>
         <tag>Hexo</tag>
         <tag>分享</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>华为手机安装谷歌</title>
-    <url>/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/</url>
-    <content><![CDATA[<hr>
-<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E7%AC%AC%E4%B8%80%E6%AD%A5">第一步</a><ul>
-<li><a href="#%E8%B0%B7%E6%AD%8C%E6%9C%8D%E5%8A%A1%E5%8A%A9%E6%89%8B">谷歌服务助手</a></li>
-</ul>
-</li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5">第二步</a><ul>
-<li><a href="#%E5%90%8E%E9%9D%A2%E9%9C%80%E5%85%A8%E7%A8%8B%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%94%E5%BF%85%E9%A1%BB%E6%8C%89%E9%A1%BA%E5%BA%8F%E6%93%8D%E4%BD%9C">后面需全程科学上网且必须按顺序操作！</a></li>
-<li><a href="#%E5%88%9D%E5%A7%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4">初始安装步骤</a></li>
-<li><a href="#%E8%A7%A3%E5%86%B3%E8%AE%BE%E5%A4%87%E6%9C%AA%E8%8E%B7%E5%BE%97play%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6%E8%AE%A4%E8%AF%81%E9%80%9A%E7%9F%A5%E9%97%AE%E9%A2%98">解决“设备未获得play保护机制认证”通知问题</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><h2 id="谷歌服务助手"><a href="#谷歌服务助手" class="headerlink" title="谷歌服务助手"></a>谷歌服务助手</h2><ul>
-<li>安装旧版“备份”<ol>
-<li>卸载原装“备份”<blockquote>
-<p>adb uninstall com.huawei.localBackup</p>
-</blockquote>
-</li>
-<li>安装提供的“备份”<blockquote>
-<p>adb install 备份.apk</p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li>修改系统时间为 2019年6月</li>
-<li>将解压 Huawei.zip 得到的 backup 文件夹移到手机根目录下的 Huawei 文件夹内</li>
-<li>设置内打开“备份与恢复”，点击右上角选择“从内部存储恢复”</li>
-<li>恢复备份的密码显示在密码提示上</li>
-<li>打开谷歌服务助手，打开全部权限后选择“激活”，看到安装框架界面时退出</li>
-<li>将系统时间调回自动</li>
-</ul>
-<h1 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h1><h2 id="后面需全程科学上网且必须按顺序操作！"><a href="#后面需全程科学上网且必须按顺序操作！" class="headerlink" title="后面需全程科学上网且必须按顺序操作！"></a>后面需全程科学上网且必须按顺序操作！</h2><h2 id="初始安装步骤"><a href="#初始安装步骤" class="headerlink" title="初始安装步骤"></a>初始安装步骤</h2><ul>
-<li>安装 0.apk (HW安装器)<ul>
-<li>打开HW安装器</li>
-<li>点击 account 登录谷歌账号</li>
-<li>软件可能会闪退一次，打开继续登录即可</li>
-</ul>
-</li>
-<li>安装 1.apk (com.google…)</li>
-<li>安装 2.apk (Google通讯录同步)</li>
-<li>安装 4.apk (Google Play 商店)</li>
-<li>安装 5.apk (SharedLibrary)</li>
-<li>安装 6.apk (Google 账户管理程序)</li>
-<li>安装 7.apk (Google服务框架)</li>
-<li>卸载 0.apk (HW安装器)</li>
-<li>安装 3.apk (Google Play 服务)</li>
-</ul>
-<h2 id="解决“设备未获得play保护机制认证”通知问题"><a href="#解决“设备未获得play保护机制认证”通知问题" class="headerlink" title="解决“设备未获得play保护机制认证”通知问题"></a>解决“设备未获得play保护机制认证”通知问题</h2><ul>
-<li>打开 Google Play 商店<ul>
-<li>第一次打开一般会显示“从服务器检索信息时出错”</li>
-<li>点击重试直到商店页面正常显示</li>
-</ul>
-</li>
-<li>在商店搜索安装 Device ID (紫色图标的版本)</li>
-<li>打开 Device ID 可以看到 Google Service Framework (GSF) 正常显示</li>
-<li>在 设置-&gt;应用和服务-&gt;应用管理 中卸载 Google Play 服务</li>
-<li>安装 8.apk (Google Play 服务)</li>
-<li>在 设置-&gt;应用和服务-&gt;应用管理 中选择 Google服务框架<ul>
-<li>强行停止 Google服务框架</li>
-<li>-&gt;存储-&gt;删除数据-&gt;存储-&gt;删除数据-&gt;…</li>
-<li>重复删除数据直到 Device ID 中 GSF 显示 Unknown</li>
-<li>一般重复三次就行</li>
-</ul>
-</li>
-<li>卸载 Google服务框架</li>
-<li>再次安装 7.apk (Google服务框架)</li>
-<li>清理后台并打开 Google Play 商店<ul>
-<li>这时正常情况下不会出现“设备未获得play保护机制认证”的通知</li>
-<li>可以随便安装个软件测试</li>
-<li>百分百确认不会出现“设备未获得play保护机制认证”才可进行下一步<blockquote>
-<p>如果还是出现“设备未获得play保护机制认证”，则卸载第二步中安装的全部软件，重启设备后重新进行第二步</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>打开 Device ID 检查 GSF 是否正常显示<ul>
-<li>重复打开关闭 Device ID 来刷新数据</li>
-<li>重复四次五次左右还是显示 Unknown 就重启设备<blockquote>
-<p>重启后还是显示 Unknown 则卸载 Google Play 服务 装回 3.apk (Google Play 服务) 并卸载重装 Google服务框架，重新进行《解决“设备未获得play保护机制认证”通知问题》直到这一步正常或从头开始</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>确认 Device ID 中 GSF 正常显示后卸载 Google Play 服务 安装 9.apk (Google Play 服务)</li>
-<li>清理后台并打开 Google Play 商店 确认不会出现“设备未获得play保护机制认证”通知且可以正常安装软件则谷歌安装成功</li>
-</ul>
-]]></content>
-      <categories>
-        <category>一点小教程</category>
-      </categories>
-      <tags>
-        <tag>华为</tag>
-        <tag>谷歌</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>x-ui搭建v2ray</title>
-    <url>/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/</url>
-    <content><![CDATA[<h1 id="x-ui搭建v2ary"><a href="#x-ui搭建v2ary" class="headerlink" title="x-ui搭建v2ary"></a>x-ui搭建v2ary</h1><blockquote>
-<p>@vaxilu&#x2F;x-ui <a href="https://github.com/vaxilu/x-ui">https://github.com/vaxilu/x-ui</a></p>
-</blockquote>
-<h1 id="一键部署代码"><a href="#一键部署代码" class="headerlink" title="一键部署代码"></a>一键部署代码</h1><p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
-<h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h1><ul>
-<li>系统状态监控</li>
-<li>支持多用户多协议，网页可视化操作</li>
-<li>支持的协议：vmess、vless、trojan、shadowsocks、dokodemo-door、socks、http</li>
-<li>支持配置更多传输配置</li>
-<li>流量统计，限制流量，限制到期时间</li>
-<li>可自定义 xray 配置模板</li>
-<li>支持 https 访问面板（自备域名 + ssl 证书）</li>
-<li>更多高级配置项，详见面板</li>
-</ul>
-<h1 id="CentOS-7自带防火墙开放端口"><a href="#CentOS-7自带防火墙开放端口" class="headerlink" title="CentOS 7自带防火墙开放端口"></a>CentOS 7自带防火墙开放端口</h1><ul>
-<li><p>查看firewall的状态<br><br><code>firewall-cmd --state</code></p>
-</li>
-<li><p>开放端口<br><br><code>firewall-cmd --permanent --add-port=XXX/tcp</code></p>
-</li>
-<li><p>重启防火墙(修改配置后要重启防火墙)<br><br><code>firewall-cmd --reload</code></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>一点小教程</category>
-      </categories>
-      <tags>
-        <tag>x-ui</tag>
-        <tag>v2ary</tag>
-        <tag>VPN</tag>
       </tags>
   </entry>
 </search>
