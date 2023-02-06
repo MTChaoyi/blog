@@ -514,118 +514,6 @@ docker run -d --name yesplaymusic -p 3000:80 fogforest&#x2F;yesplaymusic</code><
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/02/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo server</code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo generate</code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo deploy</code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Ubuntu服务器之网站</title>
-    <url>/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<hr>
-<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E8%87%AA%E6%90%AD%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83---tomcat">自搭运行环境 - Tomcat</a><ul>
-<li><a href="#step1---%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83">Step1 - 安装java环境</a></li>
-<li><a href="#step2---%E5%AE%89%E8%A3%85tomcat">Step2 - 安装Tomcat</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E5%AE%9D%E5%A1%94">使用宝塔</a><ul>
-<li><a href="#%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94">安装宝塔</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="自搭运行环境-Tomcat"><a href="#自搭运行环境-Tomcat" class="headerlink" title="自搭运行环境 - Tomcat"></a>自搭运行环境 - Tomcat</h1><h2 id="Step1-安装java环境"><a href="#Step1-安装java环境" class="headerlink" title="Step1 - 安装java环境"></a>Step1 - 安装java环境</h2><p><strong>1. 官网下载JDK <a href="https://www.oracle.com/java/technologies/downloads/">Java Downloads</a><br>  &amp;emsp;本次使用jdk-1.8.0_401</strong></p>
-<p><strong>2. 解压jdk</strong></p>
-<ul>
-<li>在 &#x2F;usr&#x2F;lib 目录下创建 jvm 文件夹来保存 JDK 文件：<pre class="language-none"><code class="language-none">cd &#x2F;usr&#x2F;lib</code></pre>
-<pre class="language-none"><code class="language-none">sudo mkdir jvm</code></pre></li>
-<li>解压缩之前的 JDK 文件到上述目录中：<pre class="language-none"><code class="language-none">cd ~&#x2F;Downloads</code></pre>
-<pre class="language-none"><code class="language-none">sudo tar -zxvf .&#x2F;jdk-8u401-linux-x64.tar.gz -C &#x2F;usr&#x2F;lib&#x2F;jvm</code></pre>
-<strong>3. 配置JDK环境变量</strong></li>
-<li>打开 ~&#x2F;.bashrc<pre class="language-none"><code class="language-none">sudo nano ~&#x2F;.bashrc</code></pre></li>
-<li>添加以下内容  <pre class="language-none"><code class="language-none">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.8.0_401
-export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre
-export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib
-export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</code></pre></li>
-<li>退出nona编辑器：<pre class="language-none"><code class="language-none">Ctrl+X 保存，Y 确定保存，回车确定保存到文件</code></pre></li>
-<li>使环境变量生效：<pre class="language-none"><code class="language-none">source ~&#x2F;.bashrc</code></pre>
-<strong>4. 检验安装结果</strong>  <pre class="language-none"><code class="language-none">java -version</code></pre>
-出现与以下结果类似则说明安装成功<blockquote>
-<p>hadoop@fzqs-computer:~$ java -version</br><br>java version “1.8.0_301”</br><br>Java(TM) SE Runtime Environment (build 1.8.0_301-b09)</br><br>Java HotSpot(TM) 64-Bit Server VM (build 25.301-b09, mixed mode)</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="Step2-安装Tomcat"><a href="#Step2-安装Tomcat" class="headerlink" title="Step2 - 安装Tomcat"></a>Step2 - 安装Tomcat</h2><p><strong>1. 官网或仓库下载Tomcat <a href="https://tomcat.apache.org/">Apache Tomcat</a> | <a href="https://www-eu.apache.org/dist/tomcat/">wget仓库</a><br>   &amp;emsp;本次安装Tomcat-9.0.68</strong><br><strong>2. 解压缩之前下载的 Tomcat 文件到 &#x2F;opt 目录中：</strong></p>
-  <pre class="language-none"><code class="language-none">cd ~&#x2F;Downloads</code></pre>
-  <pre class="language-none"><code class="language-none">sudo tar -zxvf .&#x2F;apache-tomcat-9.0.68.tar.gz -C &#x2F;opt&#x2F;</code></pre>
-<p><strong>3. 在 Tomcat bin目录下的 shell 脚本必须可执行：</strong></p>
-  <pre class="language-none"><code class="language-none">sudo sh -c &#39;chmod +x &#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;*.sh&#39;</code></pre>
-<p><strong>4. 创建 SystemD 单元文件</strong><br>  &amp;emsp;与使用 shell 脚本来启动和停止 Tomcat 服务器相比，我们将会将它作为服务来运行。</p>
-<ul>
-<li>打开文本编辑器，并且在 &#x2F;etc&#x2F;systemd&#x2F;system&#x2F; 目录下创建一个 tomcat.service 单元文件。<pre class="language-none"><code class="language-none">sudo nano &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;tomcat.service</code></pre></li>
-<li>粘贴下面的配置文件（用户名和用户组需改成自己的）  <pre class="language-none"><code class="language-none">[Unit]
-Description&#x3D;Tomcat 9 servlet container
-After&#x3D;network.target
-
-[Service]
-Type&#x3D;forking
-
-User&#x3D;用户名
-Group&#x3D;用户组
-
-Environment&#x3D;&quot;JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.8.0_401&quot;
-Environment&#x3D;&quot;JAVA_OPTS&#x3D;-Djava.security.egd&#x3D;file:&#x2F;&#x2F;&#x2F;dev&#x2F;urandom -Djava.awt.headless&#x3D;true&quot;
-
-Environment&#x3D;&quot;CATALINA_BASE&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&quot;
-Environment&#x3D;&quot;CATALINA_HOME&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&quot;
-Environment&#x3D;&quot;CATALINA_PID&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;temp&#x2F;tomcat.pid&quot;
-Environment&#x3D;&quot;CATALINA_OPTS&#x3D;-Xms512M -Xmx1024M -server -XX:+UseParallelGC&quot;
-
-ExecStart&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;startup.sh
-ExecStop&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;shutdown.sh
-
-[Install]
-WantedBy&#x3D;multi-user.target</code></pre></li>
-<li>保存并且关闭文件，通知 systemd 一个新的单元文件存在：<pre class="language-none"><code class="language-none">sudo systemctl daemon-reload</code></pre></li>
-<li>启用并且启动 Tomcat 服务：<pre class="language-none"><code class="language-none">sudo systemctl enable --now tomcat</code></pre></li>
-<li>检查服务状态：<pre class="language-none"><code class="language-none">sudo systemctl status tomcat</code></pre></li>
-<li>输出应该显示 Tomcat 服务器已经启用，并且运行了：<blockquote>
-<p>tomcat.service - Tomcat 9 servlet container</br><br>Loaded: loaded (&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;tomcat.service; enabled; vendor preset: enabled)</br><br>Active: active (running) since Mon 2020-05-25 17:58:37 UTC; 4s ago</br><br>Process: 5342 ExecStart&#x3D;&#x2F;opt&#x2F;tomcat&#x2F;latest&#x2F;bin&#x2F;startup.sh (code&#x3D;exited, status&#x3D;0&#x2F;SUCCESS)</br><br>Main PID: 5362 (java)</br><br>&amp;emsp;. . .</p>
-</blockquote>
-</li>
-</ul>
-<p><strong>5. 你可以 像其他 systemd 服务一样 启动，停止和重启 Tomcat：</strong><br>  <pre class="language-none"><code class="language-none">sudo systemctl start tomcat</code></pre><br>  <pre class="language-none"><code class="language-none">sudo systemctl stop tomcat</code></pre><br>  <pre class="language-none"><code class="language-none">sudo systemctl restart tomcat</code></pre><br><strong>6. Tomcat默认端口为 8080</strong></p>
-<h1 id="使用宝塔"><a href="#使用宝塔" class="headerlink" title="使用宝塔"></a>使用宝塔</h1><h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><blockquote>
-<p>安装脚本</p>
-<pre class="language-none"><code class="language-none">wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh ed8484bec</code></pre>
-</blockquote>
-<p><strong>一路回车直到显示</strong></p>
-<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-18-22-05-13.png" width=80%/ loading="lazy"></div>
-]]></content>
-      <categories>
-        <category>一点小教程</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>服务器</tag>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu服务器搭建</title>
     <url>/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<hr>
@@ -861,6 +749,118 @@ sudo apt install xubuntu-desktop</code></pre></li>
         <tag>Ubuntu</tag>
         <tag>服务器</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu服务器之网站</title>
+    <url>/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<hr>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E8%87%AA%E6%90%AD%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83---tomcat">自搭运行环境 - Tomcat</a><ul>
+<li><a href="#step1---%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83">Step1 - 安装java环境</a></li>
+<li><a href="#step2---%E5%AE%89%E8%A3%85tomcat">Step2 - 安装Tomcat</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%AE%9D%E5%A1%94">使用宝塔</a><ul>
+<li><a href="#%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94">安装宝塔</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="自搭运行环境-Tomcat"><a href="#自搭运行环境-Tomcat" class="headerlink" title="自搭运行环境 - Tomcat"></a>自搭运行环境 - Tomcat</h1><h2 id="Step1-安装java环境"><a href="#Step1-安装java环境" class="headerlink" title="Step1 - 安装java环境"></a>Step1 - 安装java环境</h2><p><strong>1. 官网下载JDK <a href="https://www.oracle.com/java/technologies/downloads/">Java Downloads</a><br>  &amp;emsp;本次使用jdk-1.8.0_401</strong></p>
+<p><strong>2. 解压jdk</strong></p>
+<ul>
+<li>在 &#x2F;usr&#x2F;lib 目录下创建 jvm 文件夹来保存 JDK 文件：<pre class="language-none"><code class="language-none">cd &#x2F;usr&#x2F;lib</code></pre>
+<pre class="language-none"><code class="language-none">sudo mkdir jvm</code></pre></li>
+<li>解压缩之前的 JDK 文件到上述目录中：<pre class="language-none"><code class="language-none">cd ~&#x2F;Downloads</code></pre>
+<pre class="language-none"><code class="language-none">sudo tar -zxvf .&#x2F;jdk-8u401-linux-x64.tar.gz -C &#x2F;usr&#x2F;lib&#x2F;jvm</code></pre>
+<strong>3. 配置JDK环境变量</strong></li>
+<li>打开 ~&#x2F;.bashrc<pre class="language-none"><code class="language-none">sudo nano ~&#x2F;.bashrc</code></pre></li>
+<li>添加以下内容  <pre class="language-none"><code class="language-none">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.8.0_401
+export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre
+export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib
+export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</code></pre></li>
+<li>退出nona编辑器：<pre class="language-none"><code class="language-none">Ctrl+X 保存，Y 确定保存，回车确定保存到文件</code></pre></li>
+<li>使环境变量生效：<pre class="language-none"><code class="language-none">source ~&#x2F;.bashrc</code></pre>
+<strong>4. 检验安装结果</strong>  <pre class="language-none"><code class="language-none">java -version</code></pre>
+出现与以下结果类似则说明安装成功<blockquote>
+<p>hadoop@fzqs-computer:~$ java -version</br><br>java version “1.8.0_301”</br><br>Java(TM) SE Runtime Environment (build 1.8.0_301-b09)</br><br>Java HotSpot(TM) 64-Bit Server VM (build 25.301-b09, mixed mode)</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Step2-安装Tomcat"><a href="#Step2-安装Tomcat" class="headerlink" title="Step2 - 安装Tomcat"></a>Step2 - 安装Tomcat</h2><p><strong>1. 官网或仓库下载Tomcat <a href="https://tomcat.apache.org/">Apache Tomcat</a> | <a href="https://www-eu.apache.org/dist/tomcat/">wget仓库</a><br>   &amp;emsp;本次安装Tomcat-9.0.68</strong><br><strong>2. 解压缩之前下载的 Tomcat 文件到 &#x2F;opt 目录中：</strong></p>
+  <pre class="language-none"><code class="language-none">cd ~&#x2F;Downloads</code></pre>
+  <pre class="language-none"><code class="language-none">sudo tar -zxvf .&#x2F;apache-tomcat-9.0.68.tar.gz -C &#x2F;opt&#x2F;</code></pre>
+<p><strong>3. 在 Tomcat bin目录下的 shell 脚本必须可执行：</strong></p>
+  <pre class="language-none"><code class="language-none">sudo sh -c &#39;chmod +x &#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;*.sh&#39;</code></pre>
+<p><strong>4. 创建 SystemD 单元文件</strong><br>  &amp;emsp;与使用 shell 脚本来启动和停止 Tomcat 服务器相比，我们将会将它作为服务来运行。</p>
+<ul>
+<li>打开文本编辑器，并且在 &#x2F;etc&#x2F;systemd&#x2F;system&#x2F; 目录下创建一个 tomcat.service 单元文件。<pre class="language-none"><code class="language-none">sudo nano &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;tomcat.service</code></pre></li>
+<li>粘贴下面的配置文件（用户名和用户组需改成自己的）  <pre class="language-none"><code class="language-none">[Unit]
+Description&#x3D;Tomcat 9 servlet container
+After&#x3D;network.target
+
+[Service]
+Type&#x3D;forking
+
+User&#x3D;用户名
+Group&#x3D;用户组
+
+Environment&#x3D;&quot;JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jdk1.8.0_401&quot;
+Environment&#x3D;&quot;JAVA_OPTS&#x3D;-Djava.security.egd&#x3D;file:&#x2F;&#x2F;&#x2F;dev&#x2F;urandom -Djava.awt.headless&#x3D;true&quot;
+
+Environment&#x3D;&quot;CATALINA_BASE&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&quot;
+Environment&#x3D;&quot;CATALINA_HOME&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&quot;
+Environment&#x3D;&quot;CATALINA_PID&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;temp&#x2F;tomcat.pid&quot;
+Environment&#x3D;&quot;CATALINA_OPTS&#x3D;-Xms512M -Xmx1024M -server -XX:+UseParallelGC&quot;
+
+ExecStart&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;startup.sh
+ExecStop&#x3D;&#x2F;opt&#x2F;apache-tomcat-9.0.68&#x2F;bin&#x2F;shutdown.sh
+
+[Install]
+WantedBy&#x3D;multi-user.target</code></pre></li>
+<li>保存并且关闭文件，通知 systemd 一个新的单元文件存在：<pre class="language-none"><code class="language-none">sudo systemctl daemon-reload</code></pre></li>
+<li>启用并且启动 Tomcat 服务：<pre class="language-none"><code class="language-none">sudo systemctl enable --now tomcat</code></pre></li>
+<li>检查服务状态：<pre class="language-none"><code class="language-none">sudo systemctl status tomcat</code></pre></li>
+<li>输出应该显示 Tomcat 服务器已经启用，并且运行了：<blockquote>
+<p>tomcat.service - Tomcat 9 servlet container</br><br>Loaded: loaded (&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;tomcat.service; enabled; vendor preset: enabled)</br><br>Active: active (running) since Mon 2020-05-25 17:58:37 UTC; 4s ago</br><br>Process: 5342 ExecStart&#x3D;&#x2F;opt&#x2F;tomcat&#x2F;latest&#x2F;bin&#x2F;startup.sh (code&#x3D;exited, status&#x3D;0&#x2F;SUCCESS)</br><br>Main PID: 5362 (java)</br><br>&amp;emsp;. . .</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>5. 你可以 像其他 systemd 服务一样 启动，停止和重启 Tomcat：</strong><br>  <pre class="language-none"><code class="language-none">sudo systemctl start tomcat</code></pre><br>  <pre class="language-none"><code class="language-none">sudo systemctl stop tomcat</code></pre><br>  <pre class="language-none"><code class="language-none">sudo systemctl restart tomcat</code></pre><br><strong>6. Tomcat默认端口为 8080</strong></p>
+<h1 id="使用宝塔"><a href="#使用宝塔" class="headerlink" title="使用宝塔"></a>使用宝塔</h1><h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><blockquote>
+<p>安装脚本</p>
+<pre class="language-none"><code class="language-none">wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh ed8484bec</code></pre>
+</blockquote>
+<p><strong>一路回车直到显示</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-18-22-05-13.png" width=80%/ loading="lazy"></div>
+]]></content>
+      <categories>
+        <category>一点小教程</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>服务器</tag>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/02/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo server</code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo generate</code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo deploy</code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>hexo-github搭建博客</title>
