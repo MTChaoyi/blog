@@ -1,36 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Markdown语法</title>
-    <url>/blog/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>一点小教程</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Office激活</title>
-    <url>/blog/2022/04/06/Office%E6%BF%80%E6%B4%BB/</url>
-    <content><![CDATA[<hr>
-<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E8%B4%A6%E6%88%B7%E6%B3%A8%E5%86%8C">开发人员账户注册</a></li>
-</ul>
-<hr>
-<h1 id="开发人员账户注册"><a href="#开发人员账户注册" class="headerlink" title="开发人员账户注册"></a>开发人员账户注册</h1><p><a href="https://developer.microsoft.com/zh-cn/microsoft-365/profile">https://developer.microsoft.com/zh-cn/microsoft-365/profile</a></p>
-]]></content>
-      <categories>
-        <category>一点小教程</category>
-      </categories>
-      <tags>
-        <tag>Office</tag>
-        <tag>激活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu服务器之Docker</title>
     <url>/blog/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/</url>
     <content><![CDATA[<hr>
@@ -608,6 +578,36 @@ WantedBy&#x3D;multi-user.target</code></pre></li>
       </tags>
   </entry>
   <entry>
+    <title>Markdown语法</title>
+    <url>/blog/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>一点小教程</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Office激活</title>
+    <url>/blog/2022/04/06/Office%E6%BF%80%E6%B4%BB/</url>
+    <content><![CDATA[<hr>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E8%B4%A6%E6%88%B7%E6%B3%A8%E5%86%8C">开发人员账户注册</a></li>
+</ul>
+<hr>
+<h1 id="开发人员账户注册"><a href="#开发人员账户注册" class="headerlink" title="开发人员账户注册"></a>开发人员账户注册</h1><p><a href="https://developer.microsoft.com/zh-cn/microsoft-365/profile">https://developer.microsoft.com/zh-cn/microsoft-365/profile</a></p>
+]]></content>
+      <categories>
+        <category>一点小教程</category>
+      </categories>
+      <tags>
+        <tag>Office</tag>
+        <tag>激活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu服务器搭建</title>
     <url>/blog/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<hr>
@@ -898,107 +898,6 @@ sudo apt install xubuntu-desktop</code></pre></li>
       </tags>
   </entry>
   <entry>
-    <title>华为手机安装谷歌</title>
-    <url>/blog/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/</url>
-    <content><![CDATA[<hr>
-<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E7%AC%AC%E4%B8%80%E6%AD%A5">第一步</a><ul>
-<li><a href="#%E8%B0%B7%E6%AD%8C%E6%9C%8D%E5%8A%A1%E5%8A%A9%E6%89%8B">谷歌服务助手</a></li>
-</ul>
-</li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5">第二步</a><ul>
-<li><a href="#%E5%90%8E%E9%9D%A2%E9%9C%80%E5%85%A8%E7%A8%8B%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%94%E5%BF%85%E9%A1%BB%E6%8C%89%E9%A1%BA%E5%BA%8F%E6%93%8D%E4%BD%9C">后面需全程科学上网且必须按顺序操作！</a></li>
-<li><a href="#%E5%88%9D%E5%A7%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4">初始安装步骤</a></li>
-<li><a href="#%E8%A7%A3%E5%86%B3%E8%AE%BE%E5%A4%87%E6%9C%AA%E8%8E%B7%E5%BE%97play%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6%E8%AE%A4%E8%AF%81%E9%80%9A%E7%9F%A5%E9%97%AE%E9%A2%98">解决“设备未获得play保护机制认证”通知问题</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><h2 id="谷歌服务助手"><a href="#谷歌服务助手" class="headerlink" title="谷歌服务助手"></a>谷歌服务助手</h2><ul>
-<li>安装旧版“备份”<ol>
-<li>卸载原装“备份”<blockquote>
-<p>adb uninstall com.huawei.localBackup</p>
-</blockquote>
-</li>
-<li>安装提供的“备份”<blockquote>
-<p>adb install 备份.apk</p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li>修改系统时间为 2019年6月</li>
-<li>将解压 Huawei.zip 得到的 backup 文件夹移到手机根目录下的 Huawei 文件夹内</li>
-<li>设置内打开“备份与恢复”，点击右上角选择“从内部存储恢复”</li>
-<li>恢复备份的密码显示在密码提示上</li>
-<li>打开谷歌服务助手，打开全部权限后选择“激活”，看到安装框架界面时退出</li>
-<li>将系统时间调回自动</li>
-</ul>
-<h1 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h1><h2 id="后面需全程科学上网且必须按顺序操作！"><a href="#后面需全程科学上网且必须按顺序操作！" class="headerlink" title="后面需全程科学上网且必须按顺序操作！"></a>后面需全程科学上网且必须按顺序操作！</h2><h2 id="初始安装步骤"><a href="#初始安装步骤" class="headerlink" title="初始安装步骤"></a>初始安装步骤</h2><ul>
-<li>安装 0.apk (HW安装器)<ul>
-<li>打开HW安装器</li>
-<li>点击 account 登录谷歌账号</li>
-<li>软件可能会闪退一次，打开继续登录即可</li>
-</ul>
-</li>
-<li>安装 1.apk (com.google…)</li>
-<li>安装 2.apk (Google通讯录同步)</li>
-<li>安装 4.apk (Google Play 商店)</li>
-<li>安装 5.apk (SharedLibrary)</li>
-<li>安装 6.apk (Google 账户管理程序)</li>
-<li>安装 7.apk (Google服务框架)</li>
-<li>卸载 0.apk (HW安装器)</li>
-<li>安装 3.apk (Google Play 服务)</li>
-</ul>
-<h2 id="解决“设备未获得play保护机制认证”通知问题"><a href="#解决“设备未获得play保护机制认证”通知问题" class="headerlink" title="解决“设备未获得play保护机制认证”通知问题"></a>解决“设备未获得play保护机制认证”通知问题</h2><ul>
-<li>打开 Google Play 商店<ul>
-<li>第一次打开一般会显示“从服务器检索信息时出错”</li>
-<li>点击重试直到商店页面正常显示</li>
-</ul>
-</li>
-<li>在商店搜索安装 Device ID (紫色图标的版本)</li>
-<li>打开 Device ID 可以看到 Google Service Framework (GSF) 正常显示</li>
-<li>在 设置-&gt;应用和服务-&gt;应用管理 中卸载 Google Play 服务</li>
-<li>安装 8.apk (Google Play 服务)</li>
-<li>在 设置-&gt;应用和服务-&gt;应用管理 中选择 Google服务框架<ul>
-<li>强行停止 Google服务框架</li>
-<li>-&gt;存储-&gt;删除数据-&gt;存储-&gt;删除数据-&gt;…</li>
-<li>重复删除数据直到 Device ID 中 GSF 显示 Unknown</li>
-<li>一般重复三次就行</li>
-</ul>
-</li>
-<li>卸载 Google服务框架</li>
-<li>再次安装 7.apk (Google服务框架)</li>
-<li>清理后台并打开 Google Play 商店<ul>
-<li>这时正常情况下不会出现“设备未获得play保护机制认证”的通知</li>
-<li>可以随便安装个软件测试</li>
-<li>百分百确认不会出现“设备未获得play保护机制认证”才可进行下一步<blockquote>
-<p>如果还是出现“设备未获得play保护机制认证”，则卸载第二步中安装的全部软件，重启设备后重新进行第二步</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>打开 Device ID 检查 GSF 是否正常显示<ul>
-<li>重复打开关闭 Device ID 来刷新数据</li>
-<li>重复四次五次左右还是显示 Unknown 就重启设备<blockquote>
-<p>重启后还是显示 Unknown 则卸载 Google Play 服务 装回 3.apk (Google Play 服务) 并卸载重装 Google服务框架，重新进行《解决“设备未获得play保护机制认证”通知问题》直到这一步正常或从头开始</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>确认 Device ID 中 GSF 正常显示后卸载 Google Play 服务 安装 9.apk (Google Play 服务)</li>
-<li>清理后台并打开 Google Play 商店 确认不会出现“设备未获得play保护机制认证”通知且可以正常安装软件则谷歌安装成功</li>
-</ul>
-]]></content>
-      <categories>
-        <category>一点小教程</category>
-      </categories>
-      <tags>
-        <tag>华为</tag>
-        <tag>谷歌</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo-github搭建博客</title>
     <url>/blog/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<hr>
@@ -1163,6 +1062,107 @@ hexo help             # 帮助</code></pre>
         <tag>教程</tag>
         <tag>Hexo</tag>
         <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>华为手机安装谷歌</title>
+    <url>/blog/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/</url>
+    <content><![CDATA[<hr>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E6%AD%A5">第一步</a><ul>
+<li><a href="#%E8%B0%B7%E6%AD%8C%E6%9C%8D%E5%8A%A1%E5%8A%A9%E6%89%8B">谷歌服务助手</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5">第二步</a><ul>
+<li><a href="#%E5%90%8E%E9%9D%A2%E9%9C%80%E5%85%A8%E7%A8%8B%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%B8%94%E5%BF%85%E9%A1%BB%E6%8C%89%E9%A1%BA%E5%BA%8F%E6%93%8D%E4%BD%9C">后面需全程科学上网且必须按顺序操作！</a></li>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4">初始安装步骤</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E8%AE%BE%E5%A4%87%E6%9C%AA%E8%8E%B7%E5%BE%97play%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6%E8%AE%A4%E8%AF%81%E9%80%9A%E7%9F%A5%E9%97%AE%E9%A2%98">解决“设备未获得play保护机制认证”通知问题</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><h2 id="谷歌服务助手"><a href="#谷歌服务助手" class="headerlink" title="谷歌服务助手"></a>谷歌服务助手</h2><ul>
+<li>安装旧版“备份”<ol>
+<li>卸载原装“备份”<blockquote>
+<p>adb uninstall com.huawei.localBackup</p>
+</blockquote>
+</li>
+<li>安装提供的“备份”<blockquote>
+<p>adb install 备份.apk</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>修改系统时间为 2019年6月</li>
+<li>将解压 Huawei.zip 得到的 backup 文件夹移到手机根目录下的 Huawei 文件夹内</li>
+<li>设置内打开“备份与恢复”，点击右上角选择“从内部存储恢复”</li>
+<li>恢复备份的密码显示在密码提示上</li>
+<li>打开谷歌服务助手，打开全部权限后选择“激活”，看到安装框架界面时退出</li>
+<li>将系统时间调回自动</li>
+</ul>
+<h1 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h1><h2 id="后面需全程科学上网且必须按顺序操作！"><a href="#后面需全程科学上网且必须按顺序操作！" class="headerlink" title="后面需全程科学上网且必须按顺序操作！"></a>后面需全程科学上网且必须按顺序操作！</h2><h2 id="初始安装步骤"><a href="#初始安装步骤" class="headerlink" title="初始安装步骤"></a>初始安装步骤</h2><ul>
+<li>安装 0.apk (HW安装器)<ul>
+<li>打开HW安装器</li>
+<li>点击 account 登录谷歌账号</li>
+<li>软件可能会闪退一次，打开继续登录即可</li>
+</ul>
+</li>
+<li>安装 1.apk (com.google…)</li>
+<li>安装 2.apk (Google通讯录同步)</li>
+<li>安装 4.apk (Google Play 商店)</li>
+<li>安装 5.apk (SharedLibrary)</li>
+<li>安装 6.apk (Google 账户管理程序)</li>
+<li>安装 7.apk (Google服务框架)</li>
+<li>卸载 0.apk (HW安装器)</li>
+<li>安装 3.apk (Google Play 服务)</li>
+</ul>
+<h2 id="解决“设备未获得play保护机制认证”通知问题"><a href="#解决“设备未获得play保护机制认证”通知问题" class="headerlink" title="解决“设备未获得play保护机制认证”通知问题"></a>解决“设备未获得play保护机制认证”通知问题</h2><ul>
+<li>打开 Google Play 商店<ul>
+<li>第一次打开一般会显示“从服务器检索信息时出错”</li>
+<li>点击重试直到商店页面正常显示</li>
+</ul>
+</li>
+<li>在商店搜索安装 Device ID (紫色图标的版本)</li>
+<li>打开 Device ID 可以看到 Google Service Framework (GSF) 正常显示</li>
+<li>在 设置-&gt;应用和服务-&gt;应用管理 中卸载 Google Play 服务</li>
+<li>安装 8.apk (Google Play 服务)</li>
+<li>在 设置-&gt;应用和服务-&gt;应用管理 中选择 Google服务框架<ul>
+<li>强行停止 Google服务框架</li>
+<li>-&gt;存储-&gt;删除数据-&gt;存储-&gt;删除数据-&gt;…</li>
+<li>重复删除数据直到 Device ID 中 GSF 显示 Unknown</li>
+<li>一般重复三次就行</li>
+</ul>
+</li>
+<li>卸载 Google服务框架</li>
+<li>再次安装 7.apk (Google服务框架)</li>
+<li>清理后台并打开 Google Play 商店<ul>
+<li>这时正常情况下不会出现“设备未获得play保护机制认证”的通知</li>
+<li>可以随便安装个软件测试</li>
+<li>百分百确认不会出现“设备未获得play保护机制认证”才可进行下一步<blockquote>
+<p>如果还是出现“设备未获得play保护机制认证”，则卸载第二步中安装的全部软件，重启设备后重新进行第二步</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>打开 Device ID 检查 GSF 是否正常显示<ul>
+<li>重复打开关闭 Device ID 来刷新数据</li>
+<li>重复四次五次左右还是显示 Unknown 就重启设备<blockquote>
+<p>重启后还是显示 Unknown 则卸载 Google Play 服务 装回 3.apk (Google Play 服务) 并卸载重装 Google服务框架，重新进行《解决“设备未获得play保护机制认证”通知问题》直到这一步正常或从头开始</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>确认 Device ID 中 GSF 正常显示后卸载 Google Play 服务 安装 9.apk (Google Play 服务)</li>
+<li>清理后台并打开 Google Play 商店 确认不会出现“设备未获得play保护机制认证”通知且可以正常安装软件则谷歌安装成功</li>
+</ul>
+]]></content>
+      <categories>
+        <category>一点小教程</category>
+      </categories>
+      <tags>
+        <tag>华为</tag>
+        <tag>谷歌</tag>
       </tags>
   </entry>
 </search>
