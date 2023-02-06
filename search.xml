@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Office激活</title>
+    <url>/blog/2022/04/06/Office%E6%BF%80%E6%B4%BB/</url>
+    <content><![CDATA[<hr>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E8%B4%A6%E6%88%B7%E6%B3%A8%E5%86%8C">开发人员账户注册</a></li>
+</ul>
+<hr>
+<h1 id="开发人员账户注册"><a href="#开发人员账户注册" class="headerlink" title="开发人员账户注册"></a>开发人员账户注册</h1><p><a href="https://developer.microsoft.com/zh-cn/microsoft-365/profile">https://developer.microsoft.com/zh-cn/microsoft-365/profile</a></p>
+]]></content>
+      <categories>
+        <category>一点小教程</category>
+      </categories>
+      <tags>
+        <tag>Office</tag>
+        <tag>激活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown语法</title>
+    <url>/blog/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>一点小教程</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu服务器之Docker</title>
     <url>/blog/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/</url>
     <content><![CDATA[<hr>
@@ -578,36 +608,6 @@ WantedBy&#x3D;multi-user.target</code></pre></li>
       </tags>
   </entry>
   <entry>
-    <title>Markdown语法</title>
-    <url>/blog/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>一点小教程</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Office激活</title>
-    <url>/blog/2022/04/06/Office%E6%BF%80%E6%B4%BB/</url>
-    <content><![CDATA[<hr>
-<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E8%B4%A6%E6%88%B7%E6%B3%A8%E5%86%8C">开发人员账户注册</a></li>
-</ul>
-<hr>
-<h1 id="开发人员账户注册"><a href="#开发人员账户注册" class="headerlink" title="开发人员账户注册"></a>开发人员账户注册</h1><p><a href="https://developer.microsoft.com/zh-cn/microsoft-365/profile">https://developer.microsoft.com/zh-cn/microsoft-365/profile</a></p>
-]]></content>
-      <categories>
-        <category>一点小教程</category>
-      </categories>
-      <tags>
-        <tag>Office</tag>
-        <tag>激活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu服务器搭建</title>
     <url>/blog/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<hr>
@@ -863,41 +863,6 @@ sudo apt install xubuntu-desktop</code></pre></li>
 ]]></content>
   </entry>
   <entry>
-    <title>x-ui搭建v2ray</title>
-    <url>/blog/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/</url>
-    <content><![CDATA[<h1 id="x-ui搭建v2ary"><a href="#x-ui搭建v2ary" class="headerlink" title="x-ui搭建v2ary"></a>x-ui搭建v2ary</h1><blockquote>
-<p>@vaxilu&#x2F;x-ui <a href="https://github.com/vaxilu/x-ui">https://github.com/vaxilu/x-ui</a></p>
-</blockquote>
-<h1 id="一键部署代码"><a href="#一键部署代码" class="headerlink" title="一键部署代码"></a>一键部署代码</h1><p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
-<h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h1><ul>
-<li>系统状态监控</li>
-<li>支持多用户多协议，网页可视化操作</li>
-<li>支持的协议：vmess、vless、trojan、shadowsocks、dokodemo-door、socks、http</li>
-<li>支持配置更多传输配置</li>
-<li>流量统计，限制流量，限制到期时间</li>
-<li>可自定义 xray 配置模板</li>
-<li>支持 https 访问面板（自备域名 + ssl 证书）</li>
-<li>更多高级配置项，详见面板</li>
-</ul>
-<h1 id="CentOS-7自带防火墙开放端口"><a href="#CentOS-7自带防火墙开放端口" class="headerlink" title="CentOS 7自带防火墙开放端口"></a>CentOS 7自带防火墙开放端口</h1><ul>
-<li><p>查看firewall的状态<br><br><code>firewall-cmd --state</code></p>
-</li>
-<li><p>开放端口<br><br><code>firewall-cmd --permanent --add-port=XXX/tcp</code></p>
-</li>
-<li><p>重启防火墙(修改配置后要重启防火墙)<br><br><code>firewall-cmd --reload</code></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>一点小教程</category>
-      </categories>
-      <tags>
-        <tag>x-ui</tag>
-        <tag>v2ary</tag>
-        <tag>VPN</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo-github搭建博客</title>
     <url>/blog/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<hr>
@@ -1062,6 +1027,41 @@ hexo help             # 帮助</code></pre>
         <tag>教程</tag>
         <tag>Hexo</tag>
         <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>x-ui搭建v2ray</title>
+    <url>/blog/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/</url>
+    <content><![CDATA[<h1 id="x-ui搭建v2ary"><a href="#x-ui搭建v2ary" class="headerlink" title="x-ui搭建v2ary"></a>x-ui搭建v2ary</h1><blockquote>
+<p>@vaxilu&#x2F;x-ui <a href="https://github.com/vaxilu/x-ui">https://github.com/vaxilu/x-ui</a></p>
+</blockquote>
+<h1 id="一键部署代码"><a href="#一键部署代码" class="headerlink" title="一键部署代码"></a>一键部署代码</h1><p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
+<h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h1><ul>
+<li>系统状态监控</li>
+<li>支持多用户多协议，网页可视化操作</li>
+<li>支持的协议：vmess、vless、trojan、shadowsocks、dokodemo-door、socks、http</li>
+<li>支持配置更多传输配置</li>
+<li>流量统计，限制流量，限制到期时间</li>
+<li>可自定义 xray 配置模板</li>
+<li>支持 https 访问面板（自备域名 + ssl 证书）</li>
+<li>更多高级配置项，详见面板</li>
+</ul>
+<h1 id="CentOS-7自带防火墙开放端口"><a href="#CentOS-7自带防火墙开放端口" class="headerlink" title="CentOS 7自带防火墙开放端口"></a>CentOS 7自带防火墙开放端口</h1><ul>
+<li><p>查看firewall的状态<br><br><code>firewall-cmd --state</code></p>
+</li>
+<li><p>开放端口<br><br><code>firewall-cmd --permanent --add-port=XXX/tcp</code></p>
+</li>
+<li><p>重启防火墙(修改配置后要重启防火墙)<br><br><code>firewall-cmd --reload</code></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>一点小教程</category>
+      </categories>
+      <tags>
+        <tag>x-ui</tag>
+        <tag>v2ary</tag>
+        <tag>VPN</tag>
       </tags>
   </entry>
   <entry>
