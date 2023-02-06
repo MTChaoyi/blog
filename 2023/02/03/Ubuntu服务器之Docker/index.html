@@ -1,0 +1,552 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="MTChaoyi"><meta name="copyright" content="MTChaoyi"><meta name="generator" content="Hexo 6.3.0"><meta name="theme" content="hexo-theme-yun"><title>Ubuntu服务器之Docker | 梦天的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"梦天的小站","version":"1.10.9","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"fireworks":{"colors":null},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/atom.xml" title="梦天的小站" type="application/atom+xml"><meta name="description" content="Ubuntu服务器配置Docker环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu服务器之Docker">
+<meta property="og:url" content="http://example.com/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/index.html">
+<meta property="og:site_name" content="梦天的小站">
+<meta property="og:description" content="Ubuntu服务器配置Docker环境">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-12-41-29.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-12-45-36.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-15-40-53.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-15-49-09.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-15-53-06.png">
+<meta property="article:published_time" content="2023-02-02T17:30:37.000Z">
+<meta property="article:modified_time" content="2023-02-06T13:41:21.779Z">
+<meta property="article:author" content="MTChaoyi">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="服务器">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-12-41-29.png"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="MTChaoyi"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="MTChaoyi"><span class="site-author-status" title="=.=">😭</span></a><div class="site-author-name"><a href="/about/">MTChaoyi</a></div><span class="site-name">梦天的小站</span><sub class="site-subtitle">博客</sub><div class="site-description">一个普普通通的博客</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">15</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://MTChaoyi.top/Navigation" title="导航"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/MTChaoyi" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:MTChaoyi@outlook.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/487332642" title="哔哩哔哩动画" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://t.me/MTChaoyi" title="Telegram" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-telegram-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><span class="icon iconify" data-icon="ri:rss-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Docker%E7%8E%AF%E5%A2%83"><span class="toc-text">安装Docker环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8Docker%E6%93%8D%E4%BD%9C"><span class="toc-text">常用Docker操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E5%AF%BC%E5%85%A5-x2F-%E5%AF%BC%E5%87%BA"><span class="toc-text">镜像导入&#x2F;导出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E9%95%9C%E5%83%8F%E5%82%A8%E5%AD%98%E4%BD%8D%E7%BD%AE"><span class="toc-text">更改镜像储存位置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker%E5%BA%94%E7%94%A8"><span class="toc-text">Docker应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF-%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%A9%E6%89%8B"><span class="toc-text">青龙面板(自动化助手)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-text">青龙面板基础命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2BiliBiliTool-B%E7%AB%99%E8%87%AA%E5%8A%A8%E4%BB%BB%E5%8A%A1%E5%B7%A5%E5%85%B7"><span class="toc-text">部署BiliBiliTool (B站自动任务工具)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#qbittorrent-%E7%A3%81%E9%93%BE%E4%B8%8B%E8%BD%BD"><span class="toc-text">qbittorrent (磁链下载)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bitwarden-%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-text">bitwarden (密码管理器)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YesPlayMusic-%E9%AB%98%E9%A2%9C%E5%80%BC%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BD%91%E6%98%93%E4%BA%91%E6%92%AD%E6%94%BE%E5%99%A8"><span class="toc-text">YesPlayMusic (高颜值的第三方网易云播放器)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reader-%E9%98%85%E8%AF%BB%E7%BD%91%E9%A1%B5%E7%89%88"><span class="toc-text">reader (阅读网页版)</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="MTChaoyi"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="梦天的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Ubuntu服务器之Docker<a class="post-edit-link" href="https://github.com/MTChaoyi/Blog-Hexo/tree/main/source/_posts/Ubuntu服务器之Docker.md" target="_blank" title="编辑" rel="noopener"><span class="icon iconify" data-icon="ri:edit-line"></span></a></h1><div class="post-meta"><div class="post-time" style="display:block"></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">2.5k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">10m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">一点小教程</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/Ubuntu/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">Ubuntu</span></a><a class="tag-item" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">服务器</span></a><a class="tag-item" href="/tags/Docker/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">Docker</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><hr>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85docker%E7%8E%AF%E5%A2%83">安装Docker环境</a></li>
+<li><a href="#%E5%B8%B8%E7%94%A8docker%E6%93%8D%E4%BD%9C">常用Docker操作</a><ul>
+<li><a href="#%E9%95%9C%E5%83%8F%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA">镜像导入&#x2F;导出</a></li>
+<li><a href="#%E6%9B%B4%E6%94%B9%E9%95%9C%E5%83%8F%E5%82%A8%E5%AD%98%E4%BD%8D%E7%BD%AE">更改镜像储存位置</a></li>
+</ul>
+</li>
+<li><a href="#docker%E5%BA%94%E7%94%A8">Docker应用</a><ul>
+<li><a href="#%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%A9%E6%89%8B">青龙面板(自动化助手)</a><ul>
+<li><a href="#%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4">青龙面板基础命令</a></li>
+<li><a href="#%E9%83%A8%E7%BD%B2bilibilitool-b%E7%AB%99%E8%87%AA%E5%8A%A8%E4%BB%BB%E5%8A%A1%E5%B7%A5%E5%85%B7">部署BiliBiliTool (B站自动任务工具)</a></li>
+</ul>
+</li>
+<li><a href="#qbittorrent-%E7%A3%81%E9%93%BE%E4%B8%8B%E8%BD%BD">qbittorrent (磁链下载)</a></li>
+<li><a href="#bitwarden-%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8">bitwarden (密码管理器)</a></li>
+<li><a href="#yesplaymusic-%E9%AB%98%E9%A2%9C%E5%80%BC%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BD%91%E6%98%93%E4%BA%91%E6%92%AD%E6%94%BE%E5%99%A8">YesPlayMusic (高颜值的第三方网易云播放器)</a></li>
+<li><a href="#reader-%E9%98%85%E8%AF%BB%E7%BD%91%E9%A1%B5%E7%89%88">reader (阅读网页版)</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="安装Docker环境"><a href="#安装Docker环境" class="headerlink" title="安装Docker环境"></a>安装Docker环境</h1><ul>
+<li><p>更新软件包索引，并且安装必要的依赖软件，来添加一个新的 HTTPS 软件源</p>
+<pre class="language-none"><code class="language-none">sudo apt update
+sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</code></pre></li>
+<li><p>使用下面的 curl 导入源仓库的 GPG key：</p>
+<pre class="language-none"><code class="language-none">curl -fsSL https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;ubuntu&#x2F;gpg | sudo apt-key add -</code></pre></li>
+<li><p>将 Docker APT 软件源添加到你的系统：</p>
+<pre class="language-none"><code class="language-none">sudo add-apt-repository &quot;deb [arch&#x3D;amd64] https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;ubuntu $(lsb_release -cs) stable&quot;</code></pre></li>
+<li><p>现在，Docker 软件源被启用了，你可以安装软件源中任何可用的 Docker 版本。</p>
+</li>
+<li><p>想要安装 Docker 最新版本，运行下面的命令。</p>
+<pre class="language-none"><code class="language-none">sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io</code></pre></li>
+<li><p>运行<code>sudo apt update</code>可能会有<code>Warning</code><br>解决方法参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/jiang_huixin/article/details/127186567">ubuntu 22.04 修复 key is stored in legacy trusted.gpg keyring</a></p>
+</li>
+<li><p>以非 Root 用户身份执行 Docker</p>
+<pre class="language-none"><code class="language-none">sudo usermod -aG docker $USER</code></pre></li>
+</ul>
+<h1 id="常用Docker操作"><a href="#常用Docker操作" class="headerlink" title="常用Docker操作"></a>常用Docker操作</h1><h2 id="镜像导入-x2F-导出"><a href="#镜像导入-x2F-导出" class="headerlink" title="镜像导入&#x2F;导出"></a>镜像导入&#x2F;导出</h2><ul>
+<li><p>查看宿主机所有镜像</p>
+<pre class="language-none"><code class="language-none">docker images</code></pre>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-12-41-29.png" width = 80%/ loading="lazy"></div>
+</li>
+<li><p>使用<code>save</code>命令，通过镜像id导出镜像到宿主机当前文件夹下</p>
+<pre class="language-none"><code class="language-none">docker save -o qinglong.tar whyour&#x2F;qinglong:latest</code></pre>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-12-45-36.png" width = 80%/ loading="lazy"></div>
+</li>
+<li><p>执行以下命令进行镜像导入</p>
+<pre class="language-none"><code class="language-none">docker load &lt; qinglong.tar</code></pre></li>
+</ul>
+<h2 id="更改镜像储存位置"><a href="#更改镜像储存位置" class="headerlink" title="更改镜像储存位置"></a>更改镜像储存位置</h2><ul>
+<li>默认情况下 Docker 容器的存放位置在<code>/var/lib/docker</code>目录下面</li>
+<li>可以通过下面命令查看具体位置<pre class="language-none"><code class="language-none">sudo docker info | grep &quot;Docker Root Dir&quot;</code></pre></li>
+<li>解决默认存储容量不足的情况，最直接且最有效的方法就是挂载新的分区到该目录。但是在原有系统空间不变的情况下，所以采用软链接的方式，修改镜像和容器的存放路径达到同样的目的。<pre class="language-none"><code class="language-none"># 停掉Docker服务
+$ systemctl restart docker
+
+# 停掉Docker服务
+$ service docker stop</code></pre></li>
+<li>然后移动整个<code>/var/lib/docker</code>目录到空间不较大的目的路径。这时候启动 <code>Docker</code> 时发现存储目录依旧是 <code>/var/lib/docker</code> 目录，但是实际上是存储在数据盘 <code>/data/docker</code> 上了<pre class="language-none"><code class="language-none"># 移动原有的内容
+$ mv &#x2F;var&#x2F;lib&#x2F;docker &#x2F;data&#x2F;docker
+
+# 进行链接
+$ ln -sf &#x2F;data&#x2F;docker &#x2F;var&#x2F;lib&#x2F;docker</code></pre></li>
+</ul>
+<h1 id="Docker应用"><a href="#Docker应用" class="headerlink" title="Docker应用"></a>Docker应用</h1><h2 id="青龙面板-自动化助手"><a href="#青龙面板-自动化助手" class="headerlink" title="青龙面板(自动化助手)"></a>青龙面板(自动化助手)</h2><ol>
+<li><p>在dockers官方镜像列表中拉取最新版的青龙镜像</p>
+  <pre class="language-none"><code class="language-none">docker pull whyour&#x2F;qinglong:latest</code></pre></li>
+<li><p>创建青龙面板容器，容器名qinglong文件夹名ql 端口5700</p>
+  <pre class="language-none"><code class="language-none"># 复制下列命令在ssh执行(先安装docker)
+# 注:$PWD请修改为实际你想安装的路径
+不想修改的，直接复制
+docker run -dit \
+  -v $PWD&#x2F;ql&#x2F;config:&#x2F;ql&#x2F;config \
+  -v $PWD&#x2F;ql&#x2F;log:&#x2F;ql&#x2F;log \
+  -v $PWD&#x2F;ql&#x2F;db:&#x2F;ql&#x2F;db \
+  -v $PWD&#x2F;ql&#x2F;repo:&#x2F;ql&#x2F;repo \
+  -v $PWD&#x2F;ql&#x2F;raw:&#x2F;ql&#x2F;raw \
+  -v $PWD&#x2F;ql&#x2F;scripts:&#x2F;ql&#x2F;scripts \
+  -v $PWD&#x2F;ql&#x2F;jbot:&#x2F;ql&#x2F;jbot \
+  -p 5700:5700 \
+  --name qinglong \
+  --hostname qinglong \
+  --restart unless-stopped \
+  whyour&#x2F;qinglong:latest</code></pre></li>
+<li><p>访问http:&#x2F;&#x2F;服务器IP:5700进行面板配置</p>
+</li>
+<li><p>如果没有进入配置向导，请在SSH终端下执行如下命令查看账号及密码</p>
+  <pre class="language-none"><code class="language-none">docker exec -it qinglong cat &#x2F;ql&#x2F;config&#x2F;auth.json</code></pre></li>
+</ol>
+<h3 id="青龙面板基础命令"><a href="#青龙面板基础命令" class="headerlink" title="青龙面板基础命令"></a>青龙面板基础命令</h3>  <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#重启青龙容器</span>
+<span class="token function">docker</span> restart 你的容器名
+
+<span class="token comment">#更新青龙</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> qinglong ql update
+
+<span class="token comment">#更新青龙并编译</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> qinglong ql restart
+
+<span class="token comment">#拉取自定义仓库</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> qinglong ql repo https://ghproxy.com/https://github.com/whyour/hundun.git <span class="token string">"quanx"</span> <span class="token string">"tokens|caiyun|didi|donate|fold|Env"</span>
+
+<span class="token comment">#拉取单个脚本</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> qinglong ql raw https://ghproxy.com/https://raw.githubusercontent.com/moposmall/Script/main/Me/jx_cfd.js
+
+<span class="token comment">#删除7天前的所有日志</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> qinglong ql rmlog <span class="token number">7</span>
+
+<span class="token comment">#启动bot</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> qinglong ql bot
+
+<span class="token comment">#导出互助码</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> qinglong ql code
+
+<span class="token comment">#通知测试</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> qinglong notify <span class="token builtin class-name">test</span> <span class="token builtin class-name">test</span>
+
+<span class="token comment">#立即执行脚本</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> qinglong task test.js now
+
+<span class="token comment">#并行执行脚本</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> qinglong task test.js conc</code></pre>
+<h3 id="部署BiliBiliTool-B站自动任务工具"><a href="#部署BiliBiliTool-B站自动任务工具" class="headerlink" title="部署BiliBiliTool (B站自动任务工具)"></a>部署BiliBiliTool (B站自动任务工具)</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/RayWangQvQ/BiliBiliToolPro">BiliBiliTool项目地址</a></li>
+</ul>
+<ol>
+<li><p>安装 dotnet 环境<br>  编辑青龙的 extra.sh 文件，添加如下指令：</p>
+  <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 dotnet 环境</span>
+<span class="token function">curl</span> <span class="token parameter variable">-sSL</span> https://ghproxy.com/https://raw.githubusercontent.com/RayWangQvQ/BiliBiliToolPro/main/qinglong/ray-dotnet-install.sh <span class="token operator">|</span> <span class="token function">bash</span> /dev/stdin --no-official</code></pre>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-15-40-53.png" width = 80%/ loading="lazy"></div>
+</li>
+<li><p>重启青龙容器，或在宿主机中执行<code>docker exec -it qinglong bash /ql/data/config/extra.sh</code>，其中<code>qinglong</code>是你的容器名</p>
+</li>
+<li><p>登录青龙面板并修改配置<br>  青龙面板，<code>配置文件</code>页。<br>  修改 <code>RepoFileExtensions=&quot;js py&quot;</code> 为 <code>RepoFileExtensions=&quot;js py sh&quot;</code><br>  保存配置。</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-15-49-09.png" width = 80%/ loading="lazy"></div>
+</li>
+<li><p>在青龙面板中添加拉库定时任务<br>  订阅管理(没提到的不要动)</p>
+  <pre class="language-none"><code class="language-none">名称：Bilibili
+类型：公开仓库
+链接：https:&#x2F;&#x2F;github.com&#x2F;RayWangQvQ&#x2F;BiliBiliToolPro.git
+定时类型：crontab
+定时规则：2 2 28 * *
+白名单：bili_task_.+\.sh
+文件后缀：sh</code></pre>
+<p>  保存后，点击运行按钮，运行拉库。</p>
+</li>
+<li><p>在青龙定时任务中，点击运行<code>bili扫码登录</code>任务，查看运行日志，扫描日志中的二维码进行登录。<br>  登录成功后，会将cookie保存到青龙的环境变量中</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-03-15-53-06.png" width = 80%/ loading="lazy"></div>
+</li>
+<li><p>拉库时，如果服务器在国内，访问GitHub速度慢，可以在仓库地址前加上 <code>https://ghproxy.com/</code> 进行加速, 如：<code>ql repo https://ghproxy.com/https://github.com/RayWangQvQ/BiliBiliToolPro.git &quot;bili_task_&quot;</code></p>
+</li>
+<li><p>在<code>环境变量</code>中自定义配置</p>
+</li>
+</ol>
+<ul>
+<li>是否跳过执行任务<br>用于特殊情况下，通过配置灵活的开启和关闭整个应用.<table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>[true,false]</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>false</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_Security__IsSkipDailyTask</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>请求B站接口时头部传递的User-Agent<table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>字符串，可以F12从自己的浏览器获取</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;87.0.4280.66 Safari&#x2F;537.36 Edg&#x2F;87.0.664.41</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_Security__UserAgent</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>是否开启观看视频任务<table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>[true,false]</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>true</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_DailyTaskConfig__IsWatchVideo</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>是否开启分享视频任务<table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>[true,false]</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>true</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_DailyTaskConfig__IsShareVideo</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>每日投币数量<table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>[0,5]，为安全考虑，程序内部还会做验证，最大不能超过5</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>5</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_DailyTaskConfig__NumberOfCoins</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>投币时是否同时点赞<table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>[true,false]</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>false</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_DailyTaskConfig__SelectLike</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>每月几号自动充电<br>使用大会员免费赠送的B币券自动充电，如不使用，每个月结束会自动失效。没有B币券或B币券余额不足2，不会进行充电。<table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>[-1,31]，-1表示不指定，默认月底最后一天；0表示不充电</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_DailyTaskConfig__DayOfAutoCharge</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>每月几号自动领取会员权益<table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>[-1,31]，-1表示不指定，默认每月1号；0表示不领取</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>1</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_DailyTaskConfig__DayOfReceiveVipPrivilege</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>每月几号进行直播中心银瓜子兑换硬币<table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>[-1,31]，-1表示不指定，默认每月最后一天；-2表示每天；0表示不进行兑换</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_DailyTaskConfig__DayOfExchangeSilver2Coin</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>Lv6后开启硬币白嫖模式<table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>[true,false]，true表示开启，Lv6的账号不会投币</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>false</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_DailyTaskConfig__SaveCoinsWhenLv6</code></td>
+</tr>
+</tbody></table>
+</li>
+<li>推送通知到<a target="_blank" rel="noopener" href="http://www.pushplus.plus/">PushPlus</a><table>
+<thead>
+<tr>
+<th>TITLE</th>
+<th>CONTENT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值域</td>
+<td>一串字符串</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>空</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td><code>Ray_Serilog__WriteTo__9__Args__token</code></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="qbittorrent-磁链下载"><a href="#qbittorrent-磁链下载" class="headerlink" title="qbittorrent (磁链下载)"></a>qbittorrent (磁链下载)</h2><ol>
+<li>拉取镜像(4.4.3以上版本可能有bug)  <pre class="language-none"><code class="language-none">docker pull linuxserver&#x2F;qbittorrent:4.4.3</code></pre></li>
+<li>创建对应目录并编写 Docker-Compose 文件  <pre class="language-none"><code class="language-none">cd ~&#x2F;Docker
+mkdir qBittorrent #创建qbitorrent数据文件夹
+cd qBittorrent
+mkdir config downloads #创建配置文件目录与下载目录
+vim docker-compose.yml #创建并编辑文件</code></pre></li>
+<li>vim复制如下内容并按需修改  <pre class="language-none"><code class="language-none">version: &quot;2&quot;
+services:
+  qbittorrent:
+    image: linuxserver&#x2F;qbittorrent:4.4.3
+    container_name: qbittorrent
+    environment:
+      - PUID&#x3D;1000
+      - PGID&#x3D;1000
+      - TZ&#x3D;Asia&#x2F;Shanghai # 你的时区
+      - UMASK_SET&#x3D;022
+      - WEBUI_PORT&#x3D;8081 # 将此处修改成你欲使用的 WEB 管理平台端口
+    volumes:
+      - &#x2F;home&#x2F;mtchaoyi&#x2F;Docker&#x2F;qBittorrent&#x2F;config:&#x2F;config # 绝对路径请修改为自己的config文件夹
+      - &#x2F;home&#x2F;mtchaoyi&#x2F;sda1&#x2F;qBittorrent:&#x2F;downloads # 绝对路径请修改为自己的downloads文件夹
+    ports:
+      # 要使用的映射下载端口与内部下载端口，可保持默认，安装完成后在管理页面仍然可以改成其他端口。
+      - 6881:6881
+      - 6881:6881&#x2F;udp
+      # 此处WEB UI 目标端口与内部端口务必保证相同，见问题1
+      - 8081:8081
+    restart: unless-stopped</code></pre></li>
+<li>执行docker-compose  <pre class="language-none"><code class="language-none">docker-compose up -d</code></pre></li>
+<li>执行后，如果得法，访问<code>ip:web-ui-port</code>即可进入管理页面。默认用户名密码<code>admin</code> <code>adminadmin</code></li>
+</ol>
+<h2 id="bitwarden-密码管理器"><a href="#bitwarden-密码管理器" class="headerlink" title="bitwarden (密码管理器)"></a>bitwarden (密码管理器)</h2><ol>
+<li>拉取镜像(使用大佬改的vaultwarden)  <pre class="language-none"><code class="language-none">docker pull vaultwarden&#x2F;server</code></pre></li>
+<li>创建对应目录  <pre class="language-none"><code class="language-none">cd ~&#x2F;Docker
+mkdir vaultwarden #创建vaultwarden数据文件夹</code></pre></li>
+<li>按需修改执行  <pre class="language-none"><code class="language-none">docker run -d \
+--name&#x3D;bitwarden_rs \
+-e WEBSOCKET_ENABLED&#x3D;true \
+-e LOG_FILE&#x3D;&#x2F;data&#x2F;bitwarden.log \
+-p 3011:80 -p 3012:3012 \
+-v ~&#x2F;Docker&#x2F;vaultwarden&#x2F;:&#x2F;data&#x2F; \
+--restart&#x3D;always \
+vaultwarden&#x2F;server:latest</code></pre>
+<blockquote>
+<p>注：<br> –name&#x3D;你想要在docker里面显示的名字(可选，方便后续管理)<br> 80和3012的设置端口不能冲突<br> –restart&#x3D;always 自动重启</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="YesPlayMusic-高颜值的第三方网易云播放器"><a href="#YesPlayMusic-高颜值的第三方网易云播放器" class="headerlink" title="YesPlayMusic (高颜值的第三方网易云播放器)"></a>YesPlayMusic (高颜值的第三方网易云播放器)</h2><blockquote>
+<p>项目地址 <a target="_blank" rel="noopener" href="https://github.com/qier222/YesPlayMusic">qier222&#x2F;YesPlayMusic</a></p>
+</blockquote>
+<ol>
+<li>克隆代码仓库  <pre class="language-none"><code class="language-none">git clone https:&#x2F;&#x2F;github.com&#x2F;qier222&#x2F;YesPlayMusic.git</code></pre></li>
+<li>进入目录  <pre class="language-none"><code class="language-none">cd YesPlayMusic</code></pre></li>
+<li>构建Docker镜像 (构建时间看服务器性能)  <pre class="language-none"><code class="language-none">docker build -t yesplaymusic .</code></pre></li>
+<li>启动Docker容器  <pre class="language-none"><code class="language-none">docker run -d --name YesPlayMusic -p 3000:80 yesplaymusic</code></pre>
+<blockquote>
+<p>注：<br>构建过久或失败 可使用他人构建好的镜像</p>
+</blockquote>
+<pre class="language-none"><code class="language-none"># 拉取镜像
+docker pull fogforest&#x2F;yesplaymusic
+
+# 启动Docker容器
+docker run -d --name yesplaymusic -p 3000:80 fogforest&#x2F;yesplaymusic</code></pre></li>
+</ol>
+<h2 id="reader-阅读网页版"><a href="#reader-阅读网页版" class="headerlink" title="reader (阅读网页版)"></a>reader (阅读网页版)</h2><blockquote>
+<p>项目地址 <a target="_blank" rel="noopener" href="https://github.com/hectorqin/reader">hectorqin&#x2F;reader</a></p>
+</blockquote>
+<ol>
+<li><p>下载项目里的 docker-compose.yaml</p>
+  <pre class="language-none"><code class="language-none">wget https:&#x2F;&#x2F;ghproxy.com&#x2F;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;hectorqin&#x2F;reader&#x2F;master&#x2F;docker-compose.yaml</code></pre>
+</li>
+<li><p>根据 docker-compose.yaml 里面的注释编辑所需配置</p>
+  <pre class="language-none"><code class="language-none">vim docker-compose.yaml</code></pre>
+</li>
+<li><p>启动 docker-compose</p>
+  <pre class="language-none"><code class="language-none">docker-compose up -d</code></pre></li>
+</ol>
+<ul>
+<li>书源地址 <a target="_blank" rel="noopener" href="https://legado.pages.dev/">https://legado.pages.dev</a></li>
+</ul>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>MTChaoyi</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/" title="Ubuntu服务器之Docker">http://example.com/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2023/02/06/hello-world/" rel="prev" title="Hello World"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">Hello World</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/" rel="next" title="Ubuntu服务器之网站"><span class="post-nav-text">Ubuntu服务器之网站</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2022 – 2023 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> MTChaoyi</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.9</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="https://fastly.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script><script src="/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div class="search-result-container"></div></div><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script><script src="https://fastly.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script><script>const images = [...document.querySelectorAll('.markdown-body img')]
+mediumZoom(images)</script><style>.medium-zoom-image {
+  z-index: 99;
+}</style></body></html>

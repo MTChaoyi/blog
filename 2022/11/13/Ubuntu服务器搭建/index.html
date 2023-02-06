@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="MTChaoyi"><meta name="copyright" content="MTChaoyi"><meta name="generator" content="Hexo 6.3.0"><meta name="theme" content="hexo-theme-yun"><title>Ubuntu服务器搭建 | 梦天的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"梦天的小站","version":"1.10.9","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"fireworks":{"colors":null},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/atom.xml" title="梦天的小站" type="application/atom+xml"><meta name="description" content="自用的Ubuntu服务器搭建过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu服务器搭建">
+<meta property="og:url" content="http://example.com/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="梦天的小站">
+<meta property="og:description" content="自用的Ubuntu服务器搭建过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-21-57-50.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-06-04.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-36-06.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-36-56.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-38-18.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-40-29.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-41-17.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-02-27.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-06-39.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-08-31.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-10-06.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-11-59.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-15-18.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-16-12.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-00-59-37.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-00-30.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-01-03.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-12-04-15-05-14.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-12-04-15-07-33.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-12-04-15-13-19.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-12-04-15-16-12.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-12-04-15-18-55.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-02-20-06-29.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-05-14-09-13.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-02-20-14-32.png">
+<meta property="article:published_time" content="2022-11-12T20:39:57.000Z">
+<meta property="article:modified_time" content="2023-02-06T13:08:33.919Z">
+<meta property="article:author" content="MTChaoyi">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-21-57-50.png"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="MTChaoyi"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="MTChaoyi"><span class="site-author-status" title="=.=">😭</span></a><div class="site-author-name"><a href="/about/">MTChaoyi</a></div><span class="site-name">梦天的小站</span><sub class="site-subtitle">博客</sub><div class="site-description">一个普普通通的博客</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">15</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://MTChaoyi.top/Navigation" title="导航"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/MTChaoyi" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:MTChaoyi@outlook.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/487332642" title="哔哩哔哩动画" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://t.me/MTChaoyi" title="Telegram" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-telegram-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><span class="icon iconify" data-icon="ri:rss-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu%E5%AE%89%E8%A3%85"><span class="toc-text">Ubuntu安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step1-%E5%AE%89%E8%A3%85%E5%89%8D%E5%87%86%E5%A4%87"><span class="toc-text">Step1 - 安装前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step2-%E5%86%99%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85U%E7%9B%98"><span class="toc-text">Step2 - 写系统安装U盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step3-%E5%AE%89%E8%A3%85-Ubuntu-Server"><span class="toc-text">Step3 - 安装 Ubuntu Server</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">Ubuntu基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%AF%AD%E8%A8%80"><span class="toc-text">切换中文语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD"><span class="toc-text">硬盘挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Samba%E5%85%B1%E4%BA%AB%E6%8C%82%E8%BD%BD%E7%9A%84%E7%A1%AC%E7%9B%98"><span class="toc-text">Samba共享挂载的硬盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF"><span class="toc-text">设置定时重启</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4"><span class="toc-text">清理硬盘空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5zerotier%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">连接zerotier局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85xrdp%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2-%E6%A1%8C%E9%9D%A2%E6%B2%A1%E5%95%A5%E7%94%A8"><span class="toc-text">安装xrdp远程桌面(桌面没啥用)</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="MTChaoyi"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="梦天的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Ubuntu服务器搭建<a class="post-edit-link" href="https://github.com/MTChaoyi/Blog-Hexo/tree/main/source/_posts/Ubuntu服务器搭建.md" target="_blank" title="编辑" rel="noopener"><span class="icon iconify" data-icon="ri:edit-line"></span></a></h1><div class="post-meta"><div class="post-time" style="display:block"></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">1k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">4m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">一点小教程</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/Ubuntu/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">Ubuntu</span></a><a class="tag-item" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">服务器</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><hr>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#ubuntu%E5%AE%89%E8%A3%85">Ubuntu安装</a><ul>
+<li><a href="#step1---%E5%AE%89%E8%A3%85%E5%89%8D%E5%87%86%E5%A4%87">Step1 - 安装前准备</a></li>
+<li><a href="#step2---%E5%86%99%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85u%E7%9B%98">Step2 - 写系统安装U盘</a></li>
+<li><a href="#step3---%E5%AE%89%E8%A3%85-ubuntu-server">Step3 - 安装 Ubuntu Server</a></li>
+</ul>
+</li>
+<li><a href="#ubuntu%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE">Ubuntu基础配置</a><ul>
+<li><a href="#%E5%88%87%E6%8D%A2%E4%B8%AD%E6%96%87%E8%AF%AD%E8%A8%80">切换中文语言</a></li>
+<li><a href="#%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD">硬盘挂载</a></li>
+<li><a href="#samba%E5%85%B1%E4%BA%AB%E6%8C%82%E8%BD%BD%E7%9A%84%E7%A1%AC%E7%9B%98">Samba共享挂载的硬盘</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF">设置定时重启</a></li>
+<li><a href="#%E6%B8%85%E7%90%86%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4">清理硬盘空间</a></li>
+<li><a href="#%E8%BF%9E%E6%8E%A5zerotier%E5%B1%80%E5%9F%9F%E7%BD%91">连接zerotier局域网</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85xrdp%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E6%A1%8C%E9%9D%A2%E6%B2%A1%E5%95%A5%E7%94%A8">安装xrdp远程桌面(桌面没啥用)</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Ubuntu安装"><a href="#Ubuntu安装" class="headerlink" title="Ubuntu安装"></a>Ubuntu安装</h1><h2 id="Step1-安装前准备"><a href="#Step1-安装前准备" class="headerlink" title="Step1 - 安装前准备"></a>Step1 - 安装前准备</h2><blockquote>
+<ul>
+<li>一台低功耗闲置主机</li>
+<li>一个4G以上U盘</li>
+<li>Ubuntu镜像文件 <a target="_blank" rel="noopener" href="https://cn.ubuntu.com/download">官网</a>|<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/ubuntu-releases/">阿里云</a></li>
+<li><a target="_blank" rel="noopener" href="https://rufus.ie/zh/">Rufus</a> 轻松创建USB启动盘</li>
+</ul>
+</blockquote>
+<h2 id="Step2-写系统安装U盘"><a href="#Step2-写系统安装U盘" class="headerlink" title="Step2 - 写系统安装U盘"></a>Step2 - 写系统安装U盘</h2><p><strong>1. 打开Rufus</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-21-57-50.png" width=50%/ loading="lazy"></div>
+
+
+<p><strong>2. 将系统写入U盘</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-06-04.png" width=50%/ loading="lazy"></div>
+
+
+<h2 id="Step3-安装-Ubuntu-Server"><a href="#Step3-安装-Ubuntu-Server" class="headerlink" title="Step3 - 安装 Ubuntu Server"></a>Step3 - 安装 Ubuntu Server</h2><p><strong>1. 将U盘插入闲置主机</strong></p>
+<p><strong>2. 开机，选择从U盘启动</strong></p>
+<blockquote>
+<p><strong>后续步骤用虚拟机演示</strong></p>
+</blockquote>
+<p><strong>3. 选择English</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-36-06.png" width=80%/ loading="lazy"></div>
+
+<p><strong>4. 选择键盘，默认即可</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-36-56.png" width=80%/ loading="lazy"></div>
+
+<p><strong>5. 选安装方式，默认即可</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-38-18.png" width=80%/ loading="lazy"></div>
+
+<p><strong>6. 选择网络</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-40-29.png" width=80%/ loading="lazy"></div>
+
+<p><strong>7. 选择代理，默认即可</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-22-41-17.png" width=80%/ loading="lazy"></div>
+
+<p><strong>8. 选择镜像仓库，推荐修改为国内镜像，例如阿里云的镜像</strong></p>
+<pre class="language-none"><code class="language-none">http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu</code></pre>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-02-27.png" width=80%/ loading="lazy"></div>
+
+<p><strong>9. 磁盘分区方式</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-06-39.png" width=80%/ loading="lazy"></div>
+
+<ul>
+<li>一般默认即可</li>
+<li>如果选择手动分区<ul>
+<li><p>500G及以上硬盘推荐配置</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-08-31.png" width=80%/ loading="lazy"></div>
+</li>
+<li><p>100G左右硬盘推荐配置</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-10-06.png" width=80%/ loading="lazy"></div></li>
+</ul>
+</li>
+</ul>
+<p><strong>10. 填写用户名密码等信息</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-11-59.png" width=80%/ loading="lazy"></div>
+
+<p><strong>11. 安装ssh，推荐安装</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-15-18.png" width=80%/ loading="lazy"></div>
+
+<p><strong>12. 等待安装完成</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-13-23-16-12.png" width=80%/ loading="lazy"></div>
+
+<blockquote>
+<p>出现 Reboot Now 即安装完成，回车确认重启</br><br>如果卡在某条语句一直没反应可断网重新安装系统</p>
+</blockquote>
+<hr>
+<h1 id="Ubuntu基础配置"><a href="#Ubuntu基础配置" class="headerlink" title="Ubuntu基础配置"></a>Ubuntu基础配置</h1><blockquote>
+<p>ssh&#x2F;ftp软件：<a target="_blank" rel="noopener" href="http://www.hostbuf.com/t/988.html">FinalShell</a></p>
+</blockquote>
+<h2 id="切换中文语言"><a href="#切换中文语言" class="headerlink" title="切换中文语言"></a>切换中文语言</h2><ul>
+<li><p>区域设置</p>
+  <pre class="language-none"><code class="language-none">sudo dpkg-reconfigure locales</code></pre></li>
+<li><p>向下翻,在靠近末尾的位置找到 <code>zh_CN.UTF-8 UTF-8</code> , 用 <code>空格键</code> 选中前面会添上 <code>*</code> ,然后回车键</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-00-59-37.png" width=80%/ loading="lazy"></div>
+</li>
+<li><p>再次选择 <code>zh_CN.UTF-8</code> , 然后回车完成设置</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-00-30.png" width=80%/ loading="lazy"></div>
+
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-01-03.png" width=70%/ loading="lazy"></div>
+</li>
+<li><p>重启系统</p>
+<pre class="language-none"><code class="language-none">sudo reboot</code></pre>
+</li>
+<li><p>重启后,如果有发现本该显示中文的地方出现了方块乱码,则还需要安装字体来支持中文</p>
+<pre class="language-none"><code class="language-none">sudo apt install ttf-wqy-microhei ttf-wqy-zenhei xfonts-intl-chinese</code></pre></li>
+</ul>
+<h2 id="硬盘挂载"><a href="#硬盘挂载" class="headerlink" title="硬盘挂载"></a>硬盘挂载</h2><p><strong>1. 查看未挂载硬盘</strong></p>
+<pre class="language-none"><code class="language-none">sudo fdisk -l</code></pre>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-12-04-15-05-14.png" width = 80%/ loading="lazy"></div>
+
+<p><strong>2. 将磁盘挂载在某个地方</strong></p>
+<ul>
+<li><p><code>mount /dev/sdb1 需要挂载的路径</code>需要挂载的路径必须存在</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-12-04-15-07-33.png" width = 80%/ loading="lazy"></div>
+</li>
+<li><p>出现<code>Could not mount read-write, trying read-only</code>说明挂载读写失败，以只读挂载成功</p>
+<ul>
+<li>取消挂载<pre class="language-none"><code class="language-none">umount &#x2F;dev&#x2F;sdb1</code></pre></li>
+<li>修复硬盘<pre class="language-none"><code class="language-none">sudo ntfsfix &#x2F;dev&#x2F;sdb1</code></pre>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-12-04-15-13-19.png" width = 80%/ loading="lazy"></div></li>
+<li>重新挂载硬盘<pre class="language-none"><code class="language-none">sudo mount -t ntfs &#x2F;dev&#x2F;sdb1 &#x2F;home&#x2F;mtchaoyi&#x2F;sdb1</code></pre></li>
+<li>查看挂载情况<pre class="language-none"><code class="language-none">mount</code></pre>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-12-04-15-16-12.png" width = 80%/ loading="lazy"></div>
+**3. 设置开机自动挂载**</li>
+</ul>
+</li>
+<li><p>查看硬盘UUID</p>
+<pre class="language-none"><code class="language-none">sudo blkid &#x2F;dev&#x2F;sdb1</code></pre>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-12-04-15-18-55.png" width = 80%/ loading="lazy"></div></li>
+<li><p>修改fstab</p>
+<pre class="language-none"><code class="language-none">sudo nano &#x2F;etc&#x2F;fstab</code></pre></li>
+<li><p>在最后一行添加</p>
+<pre class="language-none"><code class="language-none">UUID&#x3D;XXXX  挂载路径  ntfs  defaults 0  2</code></pre></li>
+</ul>
+<h2 id="Samba共享挂载的硬盘"><a href="#Samba共享挂载的硬盘" class="headerlink" title="Samba共享挂载的硬盘"></a>Samba共享挂载的硬盘</h2><ul>
+<li><p>安装samba服务</p>
+<pre class="language-none"><code class="language-none">sudo apt install samba</code></pre></li>
+<li><p>samba配置</p>
+<pre class="language-none"><code class="language-none">sudo vim &#x2F;etc&#x2F;samba&#x2F;smb.conf</code></pre></li>
+<li><p>在smb.conf最后添加</p>
+<pre class="language-none"><code class="language-none">[share]
+  path &#x3D; &#x2F;home&#x2F;mtchaoyi&#x2F;sda1
+  available &#x3D; yes
+  browseable &#x3D; yes
+  writable &#x3D; yes</code></pre>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-02-20-06-29.png" width = 80%/ loading="lazy"></div>
+</li>
+<li><p>创建使用该共享文件的账号</p>
+<pre class="language-none"><code class="language-none">sudo smbpasswd -a mtchaoyi</code></pre></li>
+<li><p>重启samba服务</p>
+<pre class="language-none"><code class="language-none">sudo service smbd restart</code></pre></li>
+</ul>
+<h2 id="设置定时重启"><a href="#设置定时重启" class="headerlink" title="设置定时重启"></a>设置定时重启</h2><ul>
+<li>编辑crontab<pre class="language-none"><code class="language-none">crontab -e</code></pre></li>
+<li>添加定时任务，以下的意思是：0分3点执行重启。<pre class="language-none"><code class="language-none">0 3 * * * &#x2F;sbin&#x2F;reboot</code></pre>
+<code>m h day mon week command</code><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">意义</th>
+<th align="center">取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">m</td>
+<td align="center">分钟</td>
+<td align="center">0-59</td>
+</tr>
+<tr>
+<td align="center">h</td>
+<td align="center">小时</td>
+<td align="center">0-23</td>
+</tr>
+<tr>
+<td align="center">day</td>
+<td align="center">天</td>
+<td align="center">1-31</td>
+</tr>
+<tr>
+<td align="center">mon</td>
+<td align="center">月</td>
+<td align="center">1-12</td>
+</tr>
+<tr>
+<td align="center">week</td>
+<td align="center">星期</td>
+<td align="center">0-6 ，0表示星期天</td>
+</tr>
+<tr>
+<td align="center">command</td>
+<td align="center">要执行的命令</td>
+<td align="center">——</td>
+</tr>
+</tbody></table>
+</li>
+<li>重启服务<pre class="language-none"><code class="language-none">sudo service cron restart</code></pre></li>
+<li>查看所有定时任务<pre class="language-none"><code class="language-none">crontab -l</code></pre></li>
+</ul>
+<h2 id="清理硬盘空间"><a href="#清理硬盘空间" class="headerlink" title="清理硬盘空间"></a>清理硬盘空间</h2><ul>
+<li><p>查看硬盘空间占用情况</p>
+<pre class="language-none"><code class="language-none">df -h</code></pre>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-05-14-09-13.png" width = 80%/ loading="lazy"></div>
+</li>
+<li><p>跳转到需要清理空间的挂载点，查看最大占用的一级目录</p>
+<pre class="language-none"><code class="language-none">sudo du --max-depth&#x3D;1 -h</code></pre></li>
+</ul>
+<h2 id="连接zerotier局域网"><a href="#连接zerotier局域网" class="headerlink" title="连接zerotier局域网"></a>连接zerotier局域网</h2><ul>
+<li>安装zerotier<pre class="language-none"><code class="language-none">curl -s https:&#x2F;&#x2F;install.zerotier.com | sudo bash</code></pre></li>
+<li>加入zerotier局域网<pre class="language-none"><code class="language-none">sudo zerotier-cli join 你的network ID</code></pre></li>
+<li>登入zerotier官网，进入你的局域网，在Ubuntu前面打勾，授权<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2023-02-02-20-14-32.png" width = 80%/ loading="lazy"></div></li>
+</ul>
+<h2 id="安装xrdp远程桌面-桌面没啥用"><a href="#安装xrdp远程桌面-桌面没啥用" class="headerlink" title="安装xrdp远程桌面(桌面没啥用)"></a>安装xrdp远程桌面(桌面没啥用)</h2><ul>
+<li>运行下面任何一个命令去安装你选择的桌面环境<ul>
+<li>安装 Gnome<pre class="language-none"><code class="language-none">sudo apt update
+sudo apt install ubuntu-desktop</code></pre></li>
+<li>安装 Xfce<pre class="language-none"><code class="language-none">sudo apt update
+sudo apt install xubuntu-desktop</code></pre></li>
+</ul>
+</li>
+<li>安装 Xrdp<pre class="language-none"><code class="language-none">sudo apt install xrdp</code></pre></li>
+<li>将用户添加到ssl-cert用户组<pre class="language-none"><code class="language-none">sudo adduser mtchaoyi ssl-cert</code></pre></li>
+<li>重启 Xrdp 服务，使得修改生效<pre class="language-none"><code class="language-none">sudo systemctl restart xrdp</code></pre></li>
+</ul>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>MTChaoyi</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/" title="Ubuntu服务器搭建">http://example.com/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/" rel="prev" title="Markdown语法"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">Markdown语法</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/" rel="next" title="华为手机安装谷歌"><span class="post-nav-text">华为手机安装谷歌</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2022 – 2023 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> MTChaoyi</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.9</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="https://fastly.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script><script src="/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div class="search-result-container"></div></div><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script><script src="https://fastly.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script><script>const images = [...document.querySelectorAll('.markdown-body img')]
+mediumZoom(images)</script><style>.medium-zoom-image {
+  z-index: 99;
+}</style></body></html>

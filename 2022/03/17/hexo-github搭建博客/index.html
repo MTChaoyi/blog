@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="MTChaoyi"><meta name="copyright" content="MTChaoyi"><meta name="generator" content="Hexo 6.3.0"><meta name="theme" content="hexo-theme-yun"><title>hexo-github搭建博客 | 梦天的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"梦天的小站","version":"1.10.9","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"fireworks":{"colors":null},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/atom.xml" title="梦天的小站" type="application/atom+xml"><meta name="description" content="目录 目录 环境搭建 连接 Github 创建 Github Pages 仓库 本地安装 Hexo 博客程序 安装 Hexo Hexo 初始化和本地预览   部署 Hexo 到 GitHub Pages 绑定域名（可选） 域名注册和解析 绑定域名到 Hexo 博客   开始使用 发布文章 网站设置 更换主题 常用命令   常见问题   环境搭建Hexo 基于 Node.js，搭建过程中还需要使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo-github搭建博客">
+<meta property="og:url" content="http://example.com/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="梦天的小站">
+<meta property="og:description" content="目录 目录 环境搭建 连接 Github 创建 Github Pages 仓库 本地安装 Hexo 博客程序 安装 Hexo Hexo 初始化和本地预览   部署 Hexo 到 GitHub Pages 绑定域名（可选） 域名注册和解析 绑定域名到 Hexo 博客   开始使用 发布文章 网站设置 更换主题 常用命令   常见问题   环境搭建Hexo 基于 Node.js，搭建过程中还需要使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-53-43.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-02-17-03.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-54-11.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-55-05.png">
+<meta property="article:published_time" content="2022-03-17T15:42:34.000Z">
+<meta property="article:modified_time" content="2023-02-06T13:08:22.048Z">
+<meta property="article:author" content="MTChaoyi">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-53-43.png"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="MTChaoyi"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="MTChaoyi"><span class="site-author-status" title="=.=">😭</span></a><div class="site-author-name"><a href="/about/">MTChaoyi</a></div><span class="site-name">梦天的小站</span><sub class="site-subtitle">博客</sub><div class="site-description">一个普普通通的博客</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">9</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">15</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://MTChaoyi.top/Navigation" title="导航"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/MTChaoyi" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:MTChaoyi@outlook.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/487332642" title="哔哩哔哩动画" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://t.me/MTChaoyi" title="Telegram" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-telegram-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><span class="icon iconify" data-icon="ri:rss-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5-Github"><span class="toc-text">连接 Github</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-Github-Pages-%E4%BB%93%E5%BA%93"><span class="toc-text">创建 Github Pages 仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85-Hexo-%E5%8D%9A%E5%AE%A2%E7%A8%8B%E5%BA%8F"><span class="toc-text">本地安装 Hexo 博客程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="toc-text">安装 Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="toc-text">Hexo 初始化和本地预览</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-Hexo-%E5%88%B0-GitHub-Pages"><span class="toc-text">部署 Hexo 到 GitHub Pages</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">绑定域名（可选）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%92%8C%E8%A7%A3%E6%9E%90"><span class="toc-text">域名注册和解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E5%88%B0-Hexo-%E5%8D%9A%E5%AE%A2"><span class="toc-text">绑定域名到 Hexo 博客</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="toc-text">开始使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0"><span class="toc-text">发布文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E8%AE%BE%E7%BD%AE"><span class="toc-text">网站设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="toc-text">更换主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">常用命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">常见问题</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="MTChaoyi"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="梦天的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">hexo-github搭建博客<a class="post-edit-link" href="https://github.com/MTChaoyi/Blog-Hexo/tree/main/source/_posts/hexo-github搭建博客.md" target="_blank" title="编辑" rel="noopener"><span class="icon iconify" data-icon="ri:edit-line"></span></a></h1><div class="post-meta"><div class="post-time" style="display:block"></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">1.8k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">7m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">一点小教程</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E6%95%99%E7%A8%8B/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">教程</span></a><a class="tag-item" href="/tags/Hexo/" style="--text-color:#0E83CD"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">Hexo</span></a><a class="tag-item" href="/tags/%E5%88%86%E4%BA%AB/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">分享</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><hr>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">环境搭建</a></li>
+<li><a href="#%E8%BF%9E%E6%8E%A5-github">连接 Github</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA-github-pages-%E4%BB%93%E5%BA%93">创建 Github Pages 仓库</a></li>
+<li><a href="#%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85-hexo-%E5%8D%9A%E5%AE%A2%E7%A8%8B%E5%BA%8F">本地安装 Hexo 博客程序</a><ul>
+<li><a href="#%E5%AE%89%E8%A3%85-hexo">安装 Hexo</a></li>
+<li><a href="#hexo-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88">Hexo 初始化和本地预览</a></li>
+</ul>
+</li>
+<li><a href="#%E9%83%A8%E7%BD%B2-hexo-%E5%88%B0-github-pages">部署 Hexo 到 GitHub Pages</a></li>
+<li><a href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E5%8F%AF%E9%80%89">绑定域名（可选）</a><ul>
+<li><a href="#%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%92%8C%E8%A7%A3%E6%9E%90">域名注册和解析</a></li>
+<li><a href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E5%88%B0-hexo-%E5%8D%9A%E5%AE%A2">绑定域名到 Hexo 博客</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8">开始使用</a><ul>
+<li><a href="#%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0">发布文章</a></li>
+<li><a href="#%E7%BD%91%E7%AB%99%E8%AE%BE%E7%BD%AE">网站设置</a></li>
+<li><a href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98">更换主题</a></li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">常用命令</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</a></li>
+</ul>
+<hr>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>Hexo 基于 Node.js，搭建过程中还需要使用 npm（Node.js 已带） 和 git，因此先搭建本地操作环境，安装 Node.js 和 Git。</p>
+<ul>
+<li>Node.js：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn">https://nodejs.org/zh-cn</a></li>
+<li>Git：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
+</ul>
+<p>下载 Node.js 和 Git 程序并安装，一路点 “下一步” 按默认配置完成安装。</p>
+<p>安装完成后, <code>Win+R</code> 输入 <code>cmd</code> 并打开，依次输入 <code>node -v</code>、<code>npm -v</code> 和 <code>git --version</code> 并回车，如下图出现程序版本号即可。</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-53-43.png" width = 60%/ loading="lazy"></div>
+
+<h1 id="连接-Github"><a href="#连接-Github" class="headerlink" title="连接 Github"></a>连接 Github</h1><blockquote>
+<p><strong>使用邮箱注册 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> 账户，选择免费账户（Free），并完成邮件验证。</strong></p>
+</blockquote>
+<ul>
+<li><p>打开 Git Bash，设置用户名和邮箱：</p>
+<pre class="language-none"><code class="language-none">git config --global user.name &quot;GitHub 用户名&quot;</code></pre>
+<pre class="language-none"><code class="language-none">git config --global user.email &quot;GitHub 邮箱&quot;</code></pre>
+</li>
+<li><p>创建 SSH 密匙：</p>
+<pre class="language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</code></pre>
+<p>然后一路回车。</p>
+</li>
+<li><p>添加密匙：<br><br>进入 [C:\Users\用户名.ssh] 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。</p>
+</li>
+<li><p>登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。</p>
+</li>
+<li><p>Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击 Add SSH key 完成添加。</p>
+</li>
+<li><p>验证连接：<br><br>打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 <em>Are you sure……</em>，输入 <code>yes</code> 回车确认。</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-02-17-03.png" width = 80%/ loading="lazy"></div>
+显示 *Hi xxx! You've successfully……* 即连接成功。</li>
+</ul>
+<h1 id="创建-Github-Pages-仓库"><a href="#创建-Github-Pages-仓库" class="headerlink" title="创建 Github Pages 仓库"></a>创建 Github Pages 仓库</h1><p>GitHub 主页右上角加号 -&gt; New repository：</p>
+<p>Repository name 中输入</p>
+<pre class="language-none"><code class="language-none">用户名.github.io</code></pre>
+<p>Description 选填<br><br>勾选 <em>Add a README file</em><br><br>填好后点击 Create repository 创建。<br><br><strong>创建后默认自动启用 HTTPS，博客地址为: <code>https://用户名.github.io</code></strong></p>
+<h1 id="本地安装-Hexo-博客程序"><a href="#本地安装-Hexo-博客程序" class="headerlink" title="本地安装 Hexo 博客程序"></a>本地安装 Hexo 博客程序</h1><p>新建一个文件夹用来存放 Hexo 的程序文件，如 Hexo-Blog。打开该文件夹，右键 -&gt; Git Bash Here。</p>
+<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>使用 npm 一键安装 Hexo 博客程序：<br></p>
+<pre class="language-none"><code class="language-none">npm install -g hexo-cli</code></pre>
+<p>Mac 用户需要管理员权限（sudo），运行这条命令：<br></p>
+<pre class="language-none"><code class="language-none">sudo npm install -g hexo-cli</code></pre>
+<p>安装时间有点久，界面也没任何反应，<strong>耐心等待</strong></p>
+<h2 id="Hexo-初始化和本地预览"><a href="#Hexo-初始化和本地预览" class="headerlink" title="Hexo 初始化和本地预览"></a>Hexo 初始化和本地预览</h2><p>初始化并安装所需组件：<br></p>
+<pre class="language-none"><code class="language-none">hexo init    # 初始化</code></pre>
+<pre class="language-none"><code class="language-none">npm install   # 安装组件</code></pre>
+<p>完成后依次输入下面命令，启动本地服务器进行预览：<br></p>
+<pre class="language-none"><code class="language-none">hexo g    # 生成页面</code></pre>
+<pre class="language-none"><code class="language-none">hexo s    # 启动预览</code></pre>
+<p>访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>, 出现 Hexo 默认页面，本地博客安装成功！</p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-54-11.png" width = 80%/ loading="lazy"></div>
+
+<p><strong>Tips：</strong> 如果出现页面加载不出来，可能是端口被占用了。<em>Ctrl+C</em> 关闭服务器，运行 <code>hexo server -p 5000</code> 更改端口号后重试。<br><br></p>
+<p><strong>Hexo 博客文件夹目录结构如下：</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Blog-Hexo@main/source/_posts/.pic/2022-11-19-01-55-05.png" width = 80%/ loading="lazy"></div>
+
+<h1 id="部署-Hexo-到-GitHub-Pages"><a href="#部署-Hexo-到-GitHub-Pages" class="headerlink" title="部署 Hexo 到 GitHub Pages"></a>部署 Hexo 到 GitHub Pages</h1><p>本地博客测试成功后，就是上传到 GitHub 进行部署，使其能够在网络上访问。</p>
+<ul>
+<li><p>首先安装 hexo-deployer-git：</p>
+<pre class="language-none"><code class="language-none">npm install hexo-deployer-git --save</code></pre>
+</li>
+<li><p>然后修改 <code>_config.yml</code> 文件末尾的 Deployment 部分，修改成如下：</p>
+<pre class="language-none"><code class="language-none">deploy:
+  type: git
+  repository: git@github.com:用户名&#x2F;用户名.github.io.git
+  branch: main</code></pre>
+</li>
+<li><p>完成后运行 hexo d 将网站上传部署到 GitHub Pages。</p>
+</li>
+</ul>
+<p>这时访问我们的 GitHub 域名 <code>https://用户名.github.io</code> 就可以看到 Hexo 网站了</p>
+<h1 id="绑定域名（可选）"><a href="#绑定域名（可选）" class="headerlink" title="绑定域名（可选）"></a>绑定域名（可选）</h1><p>博客搭建完成使用的是 GitHub 的子域名<code>用户名.github.io</code>，我们可以为 Hexo 博客绑定自己的域名替换 GitHub 域名，更加个性化和专业，也利于 SEO。</p>
+<h2 id="域名注册和解析"><a href="#域名注册和解析" class="headerlink" title="域名注册和解析"></a>域名注册和解析</h2><p>在 DNS 设置部分添加 CNAME 记录将 <code>www</code> 域名解析指向 <code>用户名.github.io</code>。</p>
+<h2 id="绑定域名到-Hexo-博客"><a href="#绑定域名到-Hexo-博客" class="headerlink" title="绑定域名到 Hexo 博客"></a>绑定域名到 Hexo 博客</h2><ul>
+<li>进入本地博客文件夹的 source 目录，打开记事本，里面输入自己的域名，如 <code>www.xxx.com</code>，保存名称为 “CNAME”，格式为 “所有文件”（无 .txt 后缀）。</li>
+<li>清除缓存等文件并重新发布网站：<pre class="language-none"><code class="language-none">hexo clean    # 清除缓存文件等</code></pre>
+<pre class="language-none"><code class="language-none">hexo d    #重新部署 Hexo 到 GitHub Pages</code></pre>
+等待十分钟左右就可以使用自己的域名访问 Hexo 博客了。</li>
+</ul>
+<h1 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h1><h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
+<pre class="language-none"><code class="language-none">hexo new &quot;My New Post&quot;</code></pre>
+<p>然后 source 文件夹中会出现一个 <em>My New Post.md</em> 文件，就可以使用 Markdown 编辑器在该文件中撰写文章了。<br><br>写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。以后每次发布文章都是这两条命令。</p>
+<pre class="language-none"><code class="language-none">hexo g    # 生成页面</code></pre>
+<pre class="language-none"><code class="language-none">hexo d    # 部署发布</code></pre>
+<p>也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式 Front-matter 即可，写完后运行 <code>hexo g</code> 和 <code>hexo d</code> 发布。</p>
+<pre class="language-none"><code class="language-none">---
+title: Hello World # 标题
+date: 2019&#x2F;3&#x2F;26 hh:mm:ss # 时间
+categories: # 分类
+- Diary
+tags: # 标签
+- PS3
+- Games
+---
+
+摘要
+&lt;!--more--&gt;
+正文</code></pre>
+
+<p><strong>注意：冒号后要加一个空格！</strong></p>
+<h2 id="网站设置"><a href="#网站设置" class="headerlink" title="网站设置"></a>网站设置</h2><p>包括网站名称、描述、作者、链接样式等，全部在网站目录下的 <code>_config.yml</code> 文件中，参考 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">官方文档</a> 按需要编辑。</p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>在 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo</a> 选择一个喜欢的主题，比如 NexT，进入网站目录打开 Git Bash Here 下载主题：<br></p>
+<pre class="language-none"><code class="language-none">git clone https:&#x2F;&#x2F;github.com&#x2F;iissnan&#x2F;hexo-theme-next themes&#x2F;next</code></pre>
+<p>然后修改 <code>_config.yml</code> 中的 theme 为新主题名称 next，发布。（有的主题需要将 <code>_config.yml</code> 替换为主题自带的，参考主题说明。）</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre class="language-none"><code class="language-none">hexo new &quot;name&quot;       # 新建文章
+hexo new page &quot;name&quot;  # 新建页面
+hexo g                # 生成页面
+hexo d                # 部署
+hexo g -d             # 生成页面并部署
+hexo s                # 本地预览
+hexo clean            # 清除缓存和已生成的静态文件
+hexo help             # 帮助</code></pre>
+
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ul>
+<li><p>1.Hexo 设置显示文章摘要，首页不显示全文<br><br>Hexo 主页文章列表默认会显示文章全文，浏览时很不方便，可以在文章中插入 <code>&lt;!--more--&gt;</code> 进行分段。<br><br>该代码前面的内容会作为摘要显示，而后面的内容会替换为 <em>Read More</em> 隐藏起来。</p>
+</li>
+<li><p>2.设置网站图标<br><br>进入 themes&#x2F;主题 文件夹，打开 <code>_config.yml</code> 配置文件，找到 favicon 修改，一般格式为：favicon: 图标地址。（不同主题可能略有差别）</p>
+</li>
+<li><p>3.修改并部署后没有效果<br><br>使用 hexo clean 清理后重新部署。</p>
+</li>
+<li><p>4.开启 HTTPS 后访问网站显示连接不安全？<br><br>证书还未部署生效，等待一会儿，清除浏览器缓存再试。</p>
+</li>
+<li><p>5.Mac 安装 Hexo 报错无法安装<br><br>Mac 用户需要管理员权限运行，使用 sudo npm install -g hexo-cli 命令安装。</p>
+</li>
+<li><p>6.npm 下载速度慢，甚至完全没反应<br><br>使用 npm 安装程序等待很久也没反应，或者下载速度很慢，可以更换 npm 源为国内 npm 镜像。<br><br>临时更换方法：在 npm 安装命令后面加上：<br></p>
+<pre class="language-none"><code class="language-none">--registry https:&#x2F;&#x2F;registry.npm.taobao.org</code></pre></li>
+</ul>
+<hr>
+<p>参考资料：知乎 <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/crystal-33-50">@crystal</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60578464#:~:text=%E4%BD%BF%E7%94%A8%20Hexo%2BGitHub%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%EF%BC%88%E5%B0%8F%E7%99%BD%E5%90%91%EF%BC%89%201%20%E5%87%86%E5%A4%87%202%20%E8%BF%9E%E6%8E%A5%20Github....,Hexo%20%E5%88%B0%20GitHub%20Pages%206%20%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89....%207%20%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8">使用 Hexo+GitHub 搭建个人免费博客教程（小白向）</a></p>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>MTChaoyi</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="hexo-github搭建博客">http://example.com/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/" rel="prev" title="x-ui搭建v2ray"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">x-ui搭建v2ray</span></a></div><div class="post-nav-item"></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2022 – 2023 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> MTChaoyi</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.9</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="https://fastly.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script><script src="/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div class="search-result-container"></div></div><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script><script src="https://fastly.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script><script>const images = [...document.querySelectorAll('.markdown-body img')]
+mediumZoom(images)</script><style>.medium-zoom-image {
+  z-index: 99;
+}</style></body></html>
