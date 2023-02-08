@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Office激活</title>
-    <url>/blog/2022/04/06/Office%E6%BF%80%E6%B4%BB/</url>
+    <url>/2022/04/06/Office%E6%BF%80%E6%B4%BB/</url>
     <content><![CDATA[<hr>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
@@ -21,7 +21,7 @@
   </entry>
   <entry>
     <title>Markdown语法</title>
-    <url>/blog/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/</url>
+    <url>/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>一点小教程</category>
@@ -32,7 +32,7 @@
   </entry>
   <entry>
     <title>Ubuntu服务器之Docker</title>
-    <url>/blog/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/</url>
+    <url>/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/</url>
     <content><![CDATA[<hr>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
@@ -515,7 +515,7 @@ docker run -d --name yesplaymusic -p 3000:80 fogforest&#x2F;yesplaymusic</code><
   </entry>
   <entry>
     <title>Ubuntu服务器之网站</title>
-    <url>/blog/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/</url>
+    <url>/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/</url>
     <content><![CDATA[<hr>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
@@ -609,7 +609,7 @@ WantedBy&#x3D;multi-user.target</code></pre></li>
   </entry>
   <entry>
     <title>Ubuntu服务器搭建</title>
-    <url>/blog/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
+    <url>/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<hr>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
@@ -846,7 +846,7 @@ sudo apt install xubuntu-desktop</code></pre></li>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/blog/2023/02/06/hello-world/</url>
+    <url>/2023/02/06/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
 
@@ -864,7 +864,7 @@ sudo apt install xubuntu-desktop</code></pre></li>
   </entry>
   <entry>
     <title>hexo-github搭建博客</title>
-    <url>/blog/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <url>/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<hr>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
@@ -1031,7 +1031,7 @@ hexo help             # 帮助</code></pre>
   </entry>
   <entry>
     <title>x-ui搭建v2ray</title>
-    <url>/blog/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/</url>
+    <url>/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/</url>
     <content><![CDATA[<h1 id="x-ui搭建v2ary"><a href="#x-ui搭建v2ary" class="headerlink" title="x-ui搭建v2ary"></a>x-ui搭建v2ary</h1><blockquote>
 <p>@vaxilu&#x2F;x-ui <a href="https://github.com/vaxilu/x-ui">https://github.com/vaxilu/x-ui</a></p>
 </blockquote>
@@ -1066,7 +1066,7 @@ hexo help             # 帮助</code></pre>
   </entry>
   <entry>
     <title>华为手机安装谷歌</title>
-    <url>/blog/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/</url>
+    <url>/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/</url>
     <content><![CDATA[<hr>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
@@ -1163,6 +1163,76 @@ hexo help             # 帮助</code></pre>
       <tags>
         <tag>华为</tag>
         <tag>谷歌</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大三上期末考复习</title>
+    <url>/2023/02/09/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%9C%9F%E6%9C%AB%E8%80%83%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="考试时间表"><a href="#考试时间表" class="headerlink" title="考试时间表"></a>考试时间表</h2><div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Notes@master/学习/.pic/2023-02-09-02-00-05.png"/ loading="lazy"></div>
+
+<h2 id="复习计划"><a href="#复习计划" class="headerlink" title="复习计划"></a>复习计划</h2><h3 id="2023-02-15-星期三"><a href="#2023-02-15-星期三" class="headerlink" title="2023-02-15 星期三"></a>2023-02-15 星期三</h3><h4 id="数据挖掘与分析-2"><a href="#数据挖掘与分析-2" class="headerlink" title="数据挖掘与分析 (2)"></a>数据挖掘与分析 (2)</h4><blockquote>
+<p>09:30~11:30</p>
+</blockquote>
+<ul>
+<li>复习资料 <code>PPT</code></li>
+</ul>
+<h4 id="计算机网络A-3"><a href="#计算机网络A-3" class="headerlink" title="计算机网络A (3)"></a>计算机网络A (3)</h4><blockquote>
+<p>13:00~15:00</p>
+</blockquote>
+<ul>
+<li>复习资料<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Notes@master/学习/.pic/2023-02-09-02-38-46.png" width = 45%/ loading="lazy">
+<img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Notes@master/学习/.pic/2023-02-09-02-41-32.png" width = 45%/ loading="lazy"></div></li>
+</ul>
+<h4 id="数据库应用技术-2-5"><a href="#数据库应用技术-2-5" class="headerlink" title="数据库应用技术 (2.5)"></a>数据库应用技术 (2.5)</h4><blockquote>
+<p>18:30~20:30</p>
+</blockquote>
+<ul>
+<li>复习资料 <code>PPT</code></li>
+</ul>
+<h3 id="2023-02-16-星期四"><a href="#2023-02-16-星期四" class="headerlink" title="2023-02-16 星期四"></a>2023-02-16 星期四</h3><h4 id="离散结构B-3"><a href="#离散结构B-3" class="headerlink" title="离散结构B (3)"></a>离散结构B (3)</h4><blockquote>
+<p>09:30~11:30</p>
+</blockquote>
+<ul>
+<li>复习资料 <code>PPT</code> <code>课本</code></li>
+</ul>
+<h4 id="文本数据挖掘-2"><a href="#文本数据挖掘-2" class="headerlink" title="文本数据挖掘 (2)"></a>文本数据挖掘 (2)</h4><blockquote>
+<p>13:00~15:00</p>
+</blockquote>
+<ul>
+<li>复习资料 <code>PPT</code></li>
+</ul>
+<h4 id="自然语言处理-2"><a href="#自然语言处理-2" class="headerlink" title="自然语言处理 (2)"></a>自然语言处理 (2)</h4><blockquote>
+<p>18:30~20:30</p>
+</blockquote>
+<ul>
+<li>复习资料<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Notes@master/学习/.pic/2023-02-09-02-44-12.png" width = 80%/ loading="lazy"></div></li>
+</ul>
+<h3 id="2023-02-17-星期五"><a href="#2023-02-17-星期五" class="headerlink" title="2023-02-17 星期五"></a>2023-02-17 星期五</h3><h4 id="图像处理技术-2"><a href="#图像处理技术-2" class="headerlink" title="图像处理技术 (2)"></a>图像处理技术 (2)</h4><blockquote>
+<p>09:30~11:30</p>
+</blockquote>
+<ul>
+<li>复习资料 <code>PPT</code> <code>复印的题库</code></li>
+</ul>
+<h4 id="图像分析方法-2"><a href="#图像分析方法-2" class="headerlink" title="图像分析方法 (2)"></a>图像分析方法 (2)</h4><blockquote>
+<p>16:00~18:00</p>
+</blockquote>
+<ul>
+<li>复习资料 <code>PPT</code></li>
+</ul>
+<h3 id="2023-02-18-星期六"><a href="#2023-02-18-星期六" class="headerlink" title="2023-02-18 星期六"></a>2023-02-18 星期六</h3><h4 id="毛概-3"><a href="#毛概-3" class="headerlink" title="毛概 (3)"></a>毛概 (3)</h4><blockquote>
+<p>14:30~16:30</p>
+</blockquote>
+<ul>
+<li>复习资料 <code>课本</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>期末考</tag>
+        <tag>复习</tag>
+        <tag>大三上</tag>
       </tags>
   </entry>
 </search>

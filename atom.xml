@@ -3,11 +3,11 @@
   <title>梦天的小站</title>
   
   <subtitle>博客</subtitle>
-  <link href="https://mtchaoyi.github.io/blog/atom.xml" rel="self"/>
+  <link href="https://hexo.mtchaoyi.top/atom.xml" rel="self"/>
   
-  <link href="https://mtchaoyi.github.io/blog/"/>
-  <updated>2023-02-06T11:20:33.026Z</updated>
-  <id>https://mtchaoyi.github.io/blog/</id>
+  <link href="https://hexo.mtchaoyi.top/"/>
+  <updated>2023-02-08T19:14:05.642Z</updated>
+  <id>https://hexo.mtchaoyi.top/</id>
   
   <author>
     <name>MTChaoyi</name>
@@ -17,9 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>大三上期末考复习</title>
+    <link href="https://hexo.mtchaoyi.top/2023/02/09/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%9C%9F%E6%9C%AB%E8%80%83%E5%A4%8D%E4%B9%A0/"/>
+    <id>https://hexo.mtchaoyi.top/2023/02/09/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%9C%9F%E6%9C%AB%E8%80%83%E5%A4%8D%E4%B9%A0/</id>
+    <published>2023-02-08T17:58:32.000Z</published>
+    <updated>2023-02-08T19:14:05.642Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="考试时间表"><a href="#考试时间表" class="headerlink" title="考试时间表"></a>考试时间表</h2><div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Notes@master/学习/.pic/2023-02-09-02-00-05.png"/ loading="lazy"></div><h2 id="复习计划"><a href="#复习计划" class="headerlink" title="复习计划"></a>复习计划</h2><h3 id="2023-02-15-星期三"><a href="#2023-02-15-星期三" class="headerlink" title="2023-02-15 星期三"></a>2023-02-15 星期三</h3><h4 id="数据挖掘与分析-2"><a href="#数据挖掘与分析-2" class="headerlink" title="数据挖掘与分析 (2)"></a>数据挖掘与分析 (2)</h4><blockquote><p>09:30~11:30</p></blockquote><ul><li>复习资料 <code>PPT</code></li></ul><h4 id="计算机网络A-3"><a href="#计算机网络A-3" class="headerlink" title="计算机网络A (3)"></a>计算机网络A (3)</h4><blockquote><p>13:00~15:00</p></blockquote><ul><li>复习资料<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Notes@master/学习/.pic/2023-02-09-02-38-46.png" width = 45%/ loading="lazy"><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Notes@master/学习/.pic/2023-02-09-02-41-32.png" width = 45%/ loading="lazy"></div></li></ul><h4 id="数据库应用技术-2-5"><a href="#数据库应用技术-2-5" class="headerlink" title="数据库应用技术 (2.5)"></a>数据库应用技术 (2.5)</h4><blockquote><p>18:30~20:30</p></blockquote><ul><li>复习资料 <code>PPT</code></li></ul><h3 id="2023-02-16-星期四"><a href="#2023-02-16-星期四" class="headerlink" title="2023-02-16 星期四"></a>2023-02-16 星期四</h3><h4 id="离散结构B-3"><a href="#离散结构B-3" class="headerlink" title="离散结构B (3)"></a>离散结构B (3)</h4><blockquote><p>09:30~11:30</p></blockquote><ul><li>复习资料 <code>PPT</code> <code>课本</code></li></ul><h4 id="文本数据挖掘-2"><a href="#文本数据挖掘-2" class="headerlink" title="文本数据挖掘 (2)"></a>文本数据挖掘 (2)</h4><blockquote><p>13:00~15:00</p></blockquote><ul><li>复习资料 <code>PPT</code></li></ul><h4 id="自然语言处理-2"><a href="#自然语言处理-2" class="headerlink" title="自然语言处理 (2)"></a>自然语言处理 (2)</h4><blockquote><p>18:30~20:30</p></blockquote><ul><li>复习资料<div align=center><img src="https://cdn.jsdelivr.net/gh/MTChaoyi/Notes@master/学习/.pic/2023-02-09-02-44-12.png" width = 80%/ loading="lazy"></div></li></ul><h3 id="2023-02-17-星期五"><a href="#2023-02-17-星期五" class="headerlink" title="2023-02-17 星期五"></a>2023-02-17 星期五</h3><h4 id="图像处理技术-2"><a href="#图像处理技术-2" class="headerlink" title="图像处理技术 (2)"></a>图像处理技术 (2)</h4><blockquote><p>09:30~11:30</p></blockquote><ul><li>复习资料 <code>PPT</code> <code>复印的题库</code></li></ul><h4 id="图像分析方法-2"><a href="#图像分析方法-2" class="headerlink" title="图像分析方法 (2)"></a>图像分析方法 (2)</h4><blockquote><p>16:00~18:00</p></blockquote><ul><li>复习资料 <code>PPT</code></li></ul><h3 id="2023-02-18-星期六"><a href="#2023-02-18-星期六" class="headerlink" title="2023-02-18 星期六"></a>2023-02-18 星期六</h3><h4 id="毛概-3"><a href="#毛概-3" class="headerlink" title="毛概 (3)"></a>毛概 (3)</h4><blockquote><p>14:30~16:30</p></blockquote><ul><li>复习资料 <code>课本</code></li></ul>]]></content>
+    
+    
+    <summary type="html">大三上期末考复习计划</summary>
+    
+    
+    
+    <category term="学习" scheme="https://hexo.mtchaoyi.top/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="期末考" scheme="https://hexo.mtchaoyi.top/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/"/>
+    
+    <category term="复习" scheme="https://hexo.mtchaoyi.top/tags/%E5%A4%8D%E4%B9%A0/"/>
+    
+    <category term="大三上" scheme="https://hexo.mtchaoyi.top/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="https://mtchaoyi.github.io/blog/2023/02/06/hello-world/"/>
-    <id>https://mtchaoyi.github.io/blog/2023/02/06/hello-world/</id>
+    <link href="https://hexo.mtchaoyi.top/2023/02/06/hello-world/"/>
+    <id>https://hexo.mtchaoyi.top/2023/02/06/hello-world/</id>
     <published>2023-02-06T11:20:33.025Z</published>
     <updated>2023-02-06T11:20:33.026Z</updated>
     
@@ -38,8 +63,8 @@
   
   <entry>
     <title>Ubuntu服务器之Docker</title>
-    <link href="https://mtchaoyi.github.io/blog/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/"/>
-    <id>https://mtchaoyi.github.io/blog/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/</id>
+    <link href="https://hexo.mtchaoyi.top/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/"/>
+    <id>https://hexo.mtchaoyi.top/2023/02/03/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BDocker/</id>
     <published>2023-02-02T17:30:37.000Z</published>
     <updated>2023-02-06T13:41:21.779Z</updated>
     
@@ -50,21 +75,21 @@
     
     
     
-    <category term="一点小教程" scheme="https://mtchaoyi.github.io/blog/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
+    <category term="一点小教程" scheme="https://hexo.mtchaoyi.top/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Ubuntu" scheme="https://mtchaoyi.github.io/blog/tags/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://hexo.mtchaoyi.top/tags/Ubuntu/"/>
     
-    <category term="服务器" scheme="https://mtchaoyi.github.io/blog/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://hexo.mtchaoyi.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="Docker" scheme="https://mtchaoyi.github.io/blog/tags/Docker/"/>
+    <category term="Docker" scheme="https://hexo.mtchaoyi.top/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu服务器之网站</title>
-    <link href="https://mtchaoyi.github.io/blog/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/"/>
-    <id>https://mtchaoyi.github.io/blog/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/</id>
+    <link href="https://hexo.mtchaoyi.top/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/"/>
+    <id>https://hexo.mtchaoyi.top/2022/11/18/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E7%BD%91%E7%AB%99/</id>
     <published>2022-11-18T13:59:44.000Z</published>
     <updated>2023-02-06T13:08:36.913Z</updated>
     
@@ -75,21 +100,21 @@
     
     
     
-    <category term="一点小教程" scheme="https://mtchaoyi.github.io/blog/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
+    <category term="一点小教程" scheme="https://hexo.mtchaoyi.top/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Ubuntu" scheme="https://mtchaoyi.github.io/blog/tags/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://hexo.mtchaoyi.top/tags/Ubuntu/"/>
     
-    <category term="服务器" scheme="https://mtchaoyi.github.io/blog/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://hexo.mtchaoyi.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="网站" scheme="https://mtchaoyi.github.io/blog/tags/%E7%BD%91%E7%AB%99/"/>
+    <category term="网站" scheme="https://hexo.mtchaoyi.top/tags/%E7%BD%91%E7%AB%99/"/>
     
   </entry>
   
   <entry>
     <title>Markdown语法</title>
-    <link href="https://mtchaoyi.github.io/blog/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/"/>
-    <id>https://mtchaoyi.github.io/blog/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/</id>
+    <link href="https://hexo.mtchaoyi.top/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/"/>
+    <id>https://hexo.mtchaoyi.top/2022/11/13/Markdown%E8%AF%AD%E6%B3%95/</id>
     <published>2022-11-13T13:48:42.000Z</published>
     <updated>2023-02-05T11:50:17.060Z</updated>
     
@@ -98,17 +123,17 @@
     
     
     
-    <category term="一点小教程" scheme="https://mtchaoyi.github.io/blog/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
+    <category term="一点小教程" scheme="https://hexo.mtchaoyi.top/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Markdown" scheme="https://mtchaoyi.github.io/blog/tags/Markdown/"/>
+    <category term="Markdown" scheme="https://hexo.mtchaoyi.top/tags/Markdown/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu服务器搭建</title>
-    <link href="https://mtchaoyi.github.io/blog/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
-    <id>https://mtchaoyi.github.io/blog/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</id>
+    <link href="https://hexo.mtchaoyi.top/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
+    <id>https://hexo.mtchaoyi.top/2022/11/13/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</id>
     <published>2022-11-12T20:39:57.000Z</published>
     <updated>2023-02-06T17:37:57.855Z</updated>
     
@@ -119,19 +144,19 @@
     
     
     
-    <category term="一点小教程" scheme="https://mtchaoyi.github.io/blog/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
+    <category term="一点小教程" scheme="https://hexo.mtchaoyi.top/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Ubuntu" scheme="https://mtchaoyi.github.io/blog/tags/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://hexo.mtchaoyi.top/tags/Ubuntu/"/>
     
-    <category term="服务器" scheme="https://mtchaoyi.github.io/blog/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://hexo.mtchaoyi.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>华为手机安装谷歌</title>
-    <link href="https://mtchaoyi.github.io/blog/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/"/>
-    <id>https://mtchaoyi.github.io/blog/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/</id>
+    <link href="https://hexo.mtchaoyi.top/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/"/>
+    <id>https://hexo.mtchaoyi.top/2022/04/09/%E5%8D%8E%E4%B8%BA%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C/</id>
     <published>2022-04-09T15:48:30.000Z</published>
     <updated>2022-11-18T18:31:04.435Z</updated>
     
@@ -142,19 +167,19 @@
     
     
     
-    <category term="一点小教程" scheme="https://mtchaoyi.github.io/blog/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
+    <category term="一点小教程" scheme="https://hexo.mtchaoyi.top/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="华为" scheme="https://mtchaoyi.github.io/blog/tags/%E5%8D%8E%E4%B8%BA/"/>
+    <category term="华为" scheme="https://hexo.mtchaoyi.top/tags/%E5%8D%8E%E4%B8%BA/"/>
     
-    <category term="谷歌" scheme="https://mtchaoyi.github.io/blog/tags/%E8%B0%B7%E6%AD%8C/"/>
+    <category term="谷歌" scheme="https://hexo.mtchaoyi.top/tags/%E8%B0%B7%E6%AD%8C/"/>
     
   </entry>
   
   <entry>
     <title>Office激活</title>
-    <link href="https://mtchaoyi.github.io/blog/2022/04/06/Office%E6%BF%80%E6%B4%BB/"/>
-    <id>https://mtchaoyi.github.io/blog/2022/04/06/Office%E6%BF%80%E6%B4%BB/</id>
+    <link href="https://hexo.mtchaoyi.top/2022/04/06/Office%E6%BF%80%E6%B4%BB/"/>
+    <id>https://hexo.mtchaoyi.top/2022/04/06/Office%E6%BF%80%E6%B4%BB/</id>
     <published>2022-04-06T02:18:00.000Z</published>
     <updated>2022-11-18T18:32:29.507Z</updated>
     
@@ -165,19 +190,19 @@
     
     
     
-    <category term="一点小教程" scheme="https://mtchaoyi.github.io/blog/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
+    <category term="一点小教程" scheme="https://hexo.mtchaoyi.top/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Office" scheme="https://mtchaoyi.github.io/blog/tags/Office/"/>
+    <category term="Office" scheme="https://hexo.mtchaoyi.top/tags/Office/"/>
     
-    <category term="激活" scheme="https://mtchaoyi.github.io/blog/tags/%E6%BF%80%E6%B4%BB/"/>
+    <category term="激活" scheme="https://hexo.mtchaoyi.top/tags/%E6%BF%80%E6%B4%BB/"/>
     
   </entry>
   
   <entry>
     <title>x-ui搭建v2ray</title>
-    <link href="https://mtchaoyi.github.io/blog/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/"/>
-    <id>https://mtchaoyi.github.io/blog/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/</id>
+    <link href="https://hexo.mtchaoyi.top/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/"/>
+    <id>https://hexo.mtchaoyi.top/2022/03/17/x-ui%E6%90%AD%E5%BB%BAv2ray/</id>
     <published>2022-03-17T15:56:55.000Z</published>
     <updated>2022-11-12T20:39:09.066Z</updated>
     
@@ -188,21 +213,21 @@
     
     
     
-    <category term="一点小教程" scheme="https://mtchaoyi.github.io/blog/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
+    <category term="一点小教程" scheme="https://hexo.mtchaoyi.top/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="x-ui" scheme="https://mtchaoyi.github.io/blog/tags/x-ui/"/>
+    <category term="x-ui" scheme="https://hexo.mtchaoyi.top/tags/x-ui/"/>
     
-    <category term="v2ary" scheme="https://mtchaoyi.github.io/blog/tags/v2ary/"/>
+    <category term="v2ary" scheme="https://hexo.mtchaoyi.top/tags/v2ary/"/>
     
-    <category term="VPN" scheme="https://mtchaoyi.github.io/blog/tags/VPN/"/>
+    <category term="VPN" scheme="https://hexo.mtchaoyi.top/tags/VPN/"/>
     
   </entry>
   
   <entry>
     <title>hexo-github搭建博客</title>
-    <link href="https://mtchaoyi.github.io/blog/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://mtchaoyi.github.io/blog/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</id>
+    <link href="https://hexo.mtchaoyi.top/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://hexo.mtchaoyi.top/2022/03/17/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</id>
     <published>2022-03-17T15:42:34.000Z</published>
     <updated>2023-02-06T13:08:22.048Z</updated>
     
@@ -219,14 +244,14 @@
     
     
     
-    <category term="一点小教程" scheme="https://mtchaoyi.github.io/blog/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
+    <category term="一点小教程" scheme="https://hexo.mtchaoyi.top/categories/%E4%B8%80%E7%82%B9%E5%B0%8F%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="https://mtchaoyi.github.io/blog/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://hexo.mtchaoyi.top/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="Hexo" scheme="https://mtchaoyi.github.io/blog/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://hexo.mtchaoyi.top/tags/Hexo/"/>
     
-    <category term="分享" scheme="https://mtchaoyi.github.io/blog/tags/%E5%88%86%E4%BA%AB/"/>
+    <category term="分享" scheme="https://hexo.mtchaoyi.top/tags/%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
